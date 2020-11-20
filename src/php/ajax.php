@@ -24,4 +24,14 @@
         
         wp_die();
     }
+
+    //handles the ajax submit
+    function starWarsAjaxSubmit() {
+        //need to include the constants
+        global $starWarsConstants;
+        global $wpdb;
+        //echo 'submit';
+        
+        wp_die();
+    }
 ?>
