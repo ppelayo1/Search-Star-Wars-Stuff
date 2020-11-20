@@ -19,7 +19,7 @@ jQuery(document).ready(()=>{
     }
     
     function submit(){
-        let val = jQuery(this).val();
+        let val = jQuery(this).children('input').val();
         var data = {
 			'action': 'patrickp_star_wars_query_submit',
 			'search_term': val
