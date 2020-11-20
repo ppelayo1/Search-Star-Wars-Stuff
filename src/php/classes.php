@@ -103,12 +103,12 @@ class PatrickP_StarWars_CreateTables extends PatrickP_StarWars_AbstractParent{
         ) $charset_collate;";
         
         $this->filmsSQL = "CREATE TABLE table_name (
-          episode_id mediumint NOT NULL,
+          episode mediumint NOT NULL,
           name tinytext NOT NULL,
           director tinytext DEFAULT 'N/A',
           producer tinytext DEFAULT 'N/A',
           release_date date,
-          PRIMARY KEY  (episode_id)
+          PRIMARY KEY  (episode)
         ) $charset_collate;";
         
         $this->vehiclesSQL = "CREATE TABLE table_name (
@@ -360,7 +360,7 @@ class PatrickP_StarWars_InsertData extends PatrickP_StarWars_AbstractParent{
             $wpdb->insert(
                     $table_name,
                     array(
-                            'episode_id' => $films->episode_id,
+                            'episode' => $films->episode_id,
                             'name' => $films->title,
                             'director' => $films->director,
                             'producer' => $films->producer,
