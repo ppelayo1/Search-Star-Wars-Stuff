@@ -4,14 +4,14 @@
         //need to include the constants
         global $starWarsConstants;
         global $wpdb;
-        $search_term = $_GET['search_term'] . '%';
+        $search_term = '%'. $_GET['search_term'] . '%';
         $output = [];
         
         //array of tables
         $tabArray = $starWarsConstants['TABLENAMES'];
         
         //only perform a query if input is in the search_term
-        if(strcmp($search_term, '%')){
+        if(strcmp($search_term,'%%')){
             foreach($tabArray as $table){
                 $tableName = $wpdb->prefix .$table;
                 $sql = "SELECT name FROM $tableName WHERE name LIKE %s";
