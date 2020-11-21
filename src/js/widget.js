@@ -7,15 +7,34 @@ jQuery(document).ready(()=>{
     //perform a search attempt when form submitted
     form.submit(submit);
     
+    /*jQuery(form).children('input').index(0).autocomplete({
+        source:['bob']
+    });*/
+    
+    
     //functions
     function keyPressed(){
+        console.log(this);
         let val = jQuery(this).val();
+        let id = '#' + jQuery(this).attr("id");
+        
         var data = {
 			'action': 'patrickp_star_wars_query_hint',
 			'search_term': val
 		};
         jQuery.get(ajax_object.ajax_url,data,function(response) {
-            console.log(response);
+            response = JSON.parse(response);
+            console.log(response[0]);
+            
+            //convert into arrays
+            let source = [];
+            for(let i = 0; i < response.length;i++){
+                source.push(response[i].name);
+            }
+            
+            jQuery(id).autocomplete({
+                source:source
+            });
         });
         
     }
@@ -27,7 +46,7 @@ jQuery(document).ready(()=>{
 			'search_term': val
 		};
         jQuery.get(ajax_object.ajax_url,data,function(response) {
-            console.log(response);
+            
             response = JSON.parse(response);
             if(!jQuery.isEmptyObject(response)){
                 displayResults(response);

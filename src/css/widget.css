@@ -36,4 +36,9 @@
   padding-right: 20px;
 }
 
+.ui-helper-hidden-accessible {
+  position: absolute;
+  left: -999em;
+}
+
 /*# sourceMappingURL=widget.css.map */

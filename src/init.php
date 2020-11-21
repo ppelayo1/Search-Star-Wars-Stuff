@@ -14,10 +14,15 @@
     }
 
     function scriptsStyles(){
+        //array of libraries needed for the starWarWidget
+        $dependencies = ['jquery','jquery-ui-autocomplete'];
+        
         //The js scripts and its style for the widget on the front end
         wp_enqueue_script ( 'starWarsConstantsjs', plugin_dir_url( __FILE__ ) . 'js/constants.js');
-        wp_enqueue_script ( 'starWarsWidgetjs', plugin_dir_url( __FILE__ ) . 'js/widget.js',array('jquery'),false,true);
+        wp_enqueue_script ( 'starWarsWidgetjs', plugin_dir_url( __FILE__ ) . 'js/widget.js',$dependencies,false,true);
+        wp_enqueue_style ( 'jqueryUIcssStarWars', plugin_dir_url( __FILE__ ) . 'css/jqueryAutoComplete.css'); //take from jquery ui css theme builder
         wp_enqueue_style ( 'starWarsWidgetCSS', plugin_dir_url( __FILE__ ) . 'css/widget.css');
+        
         
         //localize the script for ajax call
         wp_localize_script( 'starWarsWidgetjs', 'ajax_object',

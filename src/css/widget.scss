@@ -39,3 +39,6 @@
         
     }
 }
+//my modifications of the jquery ui css
+//hide the helper off screen
+.ui-helper-hidden-accessible { position: absolute; left:-999em; }
