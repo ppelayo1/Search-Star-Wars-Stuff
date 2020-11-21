@@ -3,7 +3,7 @@ jQuery(document).ready(()=>{
     let form = jQuery('.' + PPSTARWARSCONST.WIDGET_CLASSNAME).children('form');
     
     //listen for input to the search bar
-    form.children('input').on('input',keyPressed);
+    form.children('input').on("input",keyPressed);
     //perform a search attempt when form submitted
     form.submit(submit);
     
@@ -11,31 +11,57 @@ jQuery(document).ready(()=>{
         source:['bob']
     });*/
     
+    jQuery('#widget-star_wars_widget-5-searchBar').autocomplete({
+            delay:0,
+            source:(request,response)=>{
+                var data = {
+                'action': 'patrickp_star_wars_query_hint',
+                'search_term': request  
+                };
+
+                console.log(request);
+                jQuery.get(ajax_object.ajax_url,data,function(test){
+                    let source = [];
+                    test = JSON.parse(test);
+                    for(let i = 0; i < test.length;i++){
+                        source.push(test[i].name);
+                    }
+                    response(source);
+                    
+                });
+            }
+        });
     
     //functions
     function keyPressed(){
-        console.log(this);
+        
         let val = jQuery(this).val();
         let id = '#' + jQuery(this).attr("id");
-        
+        //console.log(val);
         var data = {
 			'action': 'patrickp_star_wars_query_hint',
 			'search_term': val
 		};
-        jQuery.get(ajax_object.ajax_url,data,function(response) {
+        
+        
+        
+        /*jQuery.get(ajax_object.ajax_url,data,function(response) {
             response = JSON.parse(response);
-            console.log(response[0]);
+            
             
             //convert into arrays
             let source = [];
             for(let i = 0; i < response.length;i++){
                 source.push(response[i].name);
             }
+            console.log(source);
             
             jQuery(id).autocomplete({
-                source:source
+                source:source,
+                delay:300,
+                minLength:0
             });
-        });
+        });*/
         
     }
     
