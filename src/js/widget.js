@@ -16,7 +16,7 @@ jQuery(document).ready(()=>{
             source:(request,response)=>{
                 var data = {
                 'action': 'patrickp_star_wars_query_hint',
-                'search_term': request  
+                'search_term': request.term  
                 };
 
                 console.log(request);

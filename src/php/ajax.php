@@ -4,7 +4,7 @@
         //need to include the constants
         global $starWarsConstants;
         global $wpdb;
-        $search_term = '%'. $_GET['search_term']['term'] . '%';
+        $search_term = '%'. $_GET['search_term'] . '%';
         $output = [];
         
         //array of tables
