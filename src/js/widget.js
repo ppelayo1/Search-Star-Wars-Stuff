@@ -1,6 +1,6 @@
 
 jQuery(document).ready(()=>{
-    let form = jQuery('.' + PPSTARWARSCONST.WIDGET_CLASSNAME);
+    let form = jQuery('.' + PPSTARWARSCONST.WIDGET_CLASSNAME).children('form');
     
     //listen for input to the search bar
     form.children('input').on('input',keyPressed);
@@ -28,7 +28,10 @@ jQuery(document).ready(()=>{
 		};
         jQuery.get(ajax_object.ajax_url,data,function(response) {
             console.log(response);
-            displayResults(response);
+            response = JSON.parse(response);
+            if(!jQuery.isEmptyObject(response)){
+                displayResults(response);
+            }
         });
         
         return false;
@@ -36,20 +39,20 @@ jQuery(document).ready(()=>{
     
     //displays the record
     function displayResults(record){
-        record = JSON.parse(record);
-        record = record[0];
-        form.children('ul').remove();
     
+        record = record[0];
+        let widgetWrapper = form.parent();
         
-        form.append('<ul></ul>');
-        let ol = form.children('ul');
+        widgetWrapper.children('ul').remove();
+        widgetWrapper.append('<ul></ul>');
+        let ol = widgetWrapper.children('ul');
         
         for(let i in record){
             if(i.localeCompare('id')){
                 let regEx = /_/g;
-                let col = i.replace(/_/g, " ");
+                let col = i.replace(regEx, " ");
                 let printOut = '<div>' + col +':</div>' + '<div>' + record[i] + '</div>';
-                ol.append('<li>'+ printOut +'</li>');
+                ol.append('<li class="' + PPSTARWARSCONST.OUTPUT_CLASSNAME +'">'+ printOut +'</li>');
             }
         }
         

@@ -14,9 +14,10 @@
     }
 
     function scriptsStyles(){
-        //The js script and its style for the widget on the front end
+        //The js scripts and its style for the widget on the front end
         wp_enqueue_script ( 'starWarsConstantsjs', plugin_dir_url( __FILE__ ) . 'js/constants.js');
         wp_enqueue_script ( 'starWarsWidgetjs', plugin_dir_url( __FILE__ ) . 'js/widget.js',array('jquery'),false,true);
+        wp_enqueue_style ( 'starWarsWidgetCSS', plugin_dir_url( __FILE__ ) . 'css/widget.css');
         
         //localize the script for ajax call
         wp_localize_script( 'starWarsWidgetjs', 'ajax_object',

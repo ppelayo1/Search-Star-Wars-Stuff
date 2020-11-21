@@ -1,0 +1,39 @@
+.starWarsWidget {
+  border: 2px inset black;
+  padding: 1em 0 1em 0;
+  background: lightgray;
+}
+.starWarsWidget form {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.starWarsWidget form label {
+  text-align: center;
+  margin-bottom: 1em;
+}
+.starWarsWidget form input {
+  border: 2px outset black;
+}
+.starWarsWidget ul {
+  width: 70%;
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+}
+@media only screen and (max-width: 450px) {
+  .starWarsWidget ul {
+    width: 90%;
+  }
+}
+.starWarsWidget ul li {
+  display: grid;
+  grid-template-columns: 55% auto;
+}
+.starWarsWidget ul li div:nth-child(2) {
+  text-align: right;
+  padding-right: 20px;
+}
+
+/*# sourceMappingURL=widget.css.map */

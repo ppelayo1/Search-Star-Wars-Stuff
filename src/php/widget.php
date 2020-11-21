@@ -48,11 +48,12 @@ class PatrickP_Star_Wars_Widget extends WP_Widget {
         //display the widget
         echo $before_widget;
     
-        echo "
-            <form class='{$this->widgetClass}'>
-                <label for='{$widgetID}'>{$instance[$this->titleFieldName]} </label>
-                <input id='{$widgetID}' placeholder='$this->widgetPlaceHolder' type='search'>
-            </form> ";
+        echo "<div class='{$this->widgetClass}'>
+                <form>
+                    <label for='{$widgetID}'>{$instance[$this->titleFieldName]} </label>
+                    <input id='{$widgetID}' placeholder='$this->widgetPlaceHolder' type='search'>
+                </form> 
+            </div>";
         echo $after_widget;
     }
  
