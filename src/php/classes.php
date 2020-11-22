@@ -219,19 +219,19 @@ class PatrickP_StarWars_InsertData extends PatrickP_StarWars_AbstractParent{
     public function insertData(){
         //get the data
         $this->planetData = $this->getData($this->planetsURL);
-        /*$this->personData = $this->getData($this->personsURL);
+        $this->personData = $this->getData($this->personsURL);
         $this->speciesData = $this->getData($this->speciesURL);
         $this->filmsData = $this->getData($this->filmsURL);
         $this->star_shipData = $this->getData($this->star_shipsURL);
-        $this->vehiclesData = $this->getData($this->vehiclesURL);*/
+        $this->vehiclesData = $this->getData($this->vehiclesURL);
         
         //insert the data
         $this->insertPlanetData();
-        /*$this->insertPeopleData();
+        $this->insertPeopleData();
         $this->insertSpeciesData();
         $this->insertFilmsData();
         $this->insertStarShipData();
-        $this->insertVehiclesData();*/
+        $this->insertVehiclesData();
     }
     
     //gets the data for the passedURL
@@ -310,7 +310,7 @@ class PatrickP_StarWars_InsertData extends PatrickP_StarWars_AbstractParent{
         $sql = array();
         
         //build the array of sql data to insert
-        foreach($this->person as $person){
+        foreach($this->personData as $person){
             $sql[] = '("'.$person->name.'", "'.$person->height.'", "'.$person->mass.'", "'.$person->birth_year.'", "'.$person->gender.'", "'.$person->homeworld.'")';
         }
         
@@ -318,20 +318,6 @@ class PatrickP_StarWars_InsertData extends PatrickP_StarWars_AbstractParent{
         $sql = "INSERT INTO {$table_name} (name, height, mass, birth_year, gender, homeworld) VALUES ".implode(',', $sql);
         $wpdb->query($sql); 
         
-        /*//insert the data        
-        foreach($this->personData as $person){
-            $wpdb->insert(
-                    $table_name,
-                    array(
-                            'name' => $person->name,
-                            'height' => $person->height,
-                            'mass' => $person->mass,
-                            'birth_year' => $person->birth_year,
-                            'gender' => $person->gender,
-                            'homeworld' => $person->homeworld
-                    )
-            );
-        } */
     }
     
     //inserts the species data to the database
@@ -341,7 +327,7 @@ class PatrickP_StarWars_InsertData extends PatrickP_StarWars_AbstractParent{
         $sql = array();
         
         //build the array of sql data to insert
-        foreach($this->species as $species){
+        foreach($this->speciesData as $species){
             $sql[] = '("'.$species->name.'", "'.$species->language.'", "'.$species->homeworld.'", "'.$species->average_lifespan.'", "'.$species->average_height.'", "'.$species->classification.'", "'.$species->designation.'")';
         }
         
@@ -349,21 +335,6 @@ class PatrickP_StarWars_InsertData extends PatrickP_StarWars_AbstractParent{
         $sql = "INSERT INTO {$table_name} (name, language, homeworld, average_lifespan, average_height, classification, designation) VALUES ".implode(',', $sql);
         $wpdb->query($sql);
         
-        /*//insert the data        
-        foreach($this->speciesData as $species){
-            $wpdb->insert(
-                    $table_name,
-                    array(
-                            'name' => $species->name,
-                            'language' => $species->language,
-                            'homeworld' => $species->homeworld,
-                            'average_lifespan' => $species->average_lifespan,
-                            'average_height' => $species->average_height,
-                            'classification' => $species->classification,
-                            'designation' => $species->designation
-                    )
-            );
-        }  */
     }
     
     //inserts the film data to the database
@@ -381,66 +352,22 @@ class PatrickP_StarWars_InsertData extends PatrickP_StarWars_AbstractParent{
         $sql = "INSERT INTO {$table_name} (episode, name, director, producer, release_date) VALUES ".implode(',', $sql);
         $wpdb->query($sql); 
         
-        /*//insert the data        
-        foreach($this->filmsData as $films){
-            $wpdb->insert(
-                    $table_name,
-                    array(
-                            'episode' => $films->episode_id,
-                            'name' => $films->title,
-                            'director' => $films->director,
-                            'producer' => $films->producer,
-                            'release_date' => $films->release_date
-                    )
-            );
-        }  */
     }
     
     //inserts the star ship data to the database
     protected function insertStarShipData(){
         global $wpdb;
         $table_name = $wpdb->prefix . $this->star_shipsTab;
+        $sql = array();
         
-        //insert the data        
+        //build the array of sql data to insert
         foreach($this->star_shipData as $star_ship){
-            $wpdb->insert(
-                    $table_name,
-                    array(
-                            'name' => $star_ship->name,
-                            'model' => $star_ship->model,
-                            'cost_in_credits' => $star_ship->cost_in_credits,
-                            'length' => $star_ship->length,
-                            'crew' => $star_ship->crew,
-                            'starship_class' => $star_ship->starship_class
-                    )
-            );
-        }  
-    }
-    
-    //gets the vehicles data and stores it in the class member
-    protected function getVehiclesData(){
-        //local variables
-        $firstSet = json_decode(file_get_contents($this->vehiclesURL));
-        $secondSet;
-        
-        if($firstSet->next != null){
-            $secondSet = json_decode(file_get_contents($firstSet->next));
-            
+            $sql[] = '("'.$star_ship->name.'", "'.$star_ship->model.'", "'.$star_ship->cost_in_credits.'", "'.$star_ship->length.'", "'.$star_ship->crew.'", "'.$star_ship->starship_class.'")';
         }
         
-        //merged array
-        $mergedArray = array_merge($firstSet->results,$secondSet->results);
-        
-        
-        //continue to add to the mergedArray as long as new data is found
-        while($secondSet->next != null){
-            $secondSet = json_decode(file_get_contents($secondSet->next));
-            
-            $mergedArray = array_merge($mergedArray,$secondSet->results); 
-        }
-        
-        //store the data
-        $this->vehiclesData = $mergedArray;
+        //insert the data
+        $sql = "INSERT INTO {$table_name} (name, model, cost_in_credits, length, crew, starship_class) VALUES ".implode(',', $sql);
+        $wpdb->query($sql); 
         
     }
     
@@ -448,22 +375,17 @@ class PatrickP_StarWars_InsertData extends PatrickP_StarWars_AbstractParent{
     protected function insertVehiclesData(){
         global $wpdb;
         $table_name = $wpdb->prefix . $this->vehiclesTab;
+        $sql = array();
         
-        //insert the data        
+        //build the array of sql data to insert
         foreach($this->vehiclesData as $vehicles){
-            $wpdb->insert(
-                    $table_name,
-                    array(
-                            'name' => $vehicles->name,
-                            'model' => $vehicles->model,
-                            'manufacturer' => $vehicles->manufacturer,
-                            'length' => $vehicles->length,
-                            'crew' => $vehicles->crew,
-                            'cost_in_credits' => $vehicles->cost_in_credits,
-                            'vehicle_class' => $vehicles->vehicle_class
-                    )
-            );
-        }  
+            $sql[] = '("'.$vehicles->name.'", "'.$vehicles->model.'", "'.$vehicles->manufacturer.'", "'.$vehicles->length.'", "'.$vehicles->crew.'", "'.$vehicles->cost_in_credits.'", "'.$vehicles->vehicle_class.'")';
+        }
+        
+        //insert the data
+        $sql = "INSERT INTO {$table_name} (name, model, manufacturer, length, crew, cost_in_credits, vehicle_class) VALUES ".implode(',', $sql);
+        $wpdb->query($sql); 
+        
     }
     
     //this is a utility function used to sanitze data for the mysql call
