@@ -41,4 +41,10 @@
   left: -999em;
 }
 
+.ui-menu-item:hover {
+  background: lightgray;
+  margin: 0;
+  padding: 0.5rem 0 0 2rem;
+}
+
 /*# sourceMappingURL=widget.css.map */

@@ -42,3 +42,10 @@
 //my modifications of the jquery ui css
 //hide the helper off screen
 .ui-helper-hidden-accessible { position: absolute; left:-999em; }
+
+//makes the background of the row lightgrey when hovered
+.ui-menu-item:hover{
+    background:lightgray;
+    margin:0;
+    padding:0.5rem 0 0 2rem;
+}
