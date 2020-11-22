@@ -3,70 +3,46 @@ jQuery(document).ready(()=>{
     let form = jQuery('.' + PPSTARWARSCONST.WIDGET_CLASSNAME).children('form');
     
     //listen for input to the search bar
-    form.children('input').on("input",keyPressed);
+    setUpHintHandler();
+    
     //perform a search attempt when form submitted
     form.submit(submit);
     
-    /*jQuery(form).children('input').index(0).autocomplete({
-        source:['bob']
-    });*/
-    
-    jQuery('#widget-star_wars_widget-5-searchBar').autocomplete({
-            delay:0,
-            source:(request,response)=>{
-                var data = {
-                'action': 'patrickp_star_wars_query_hint',
-                'search_term': request.term  
-                };
-
-                console.log(request);
-                jQuery.get(ajax_object.ajax_url,data,function(test){
-                    let source = [];
-                    test = JSON.parse(test);
-                    for(let i = 0; i < test.length;i++){
-                        source.push(test[i].name);
-                    }
-                    response(source);
-                    
-                });
-            }
-        });
-    
     //functions
-    function keyPressed(){
+    
+    //This function sets up the auto complete hint handler for each star wars search widget
+    function setUpHintHandler(){
+        let input = jQuery(form).children('input');
         
-        let val = jQuery(this).val();
-        let id = '#' + jQuery(this).attr("id");
-        //console.log(val);
-        var data = {
-			'action': 'patrickp_star_wars_query_hint',
-			'search_term': val
-		};
-        
-        
-        
-        /*jQuery.get(ajax_object.ajax_url,data,function(response) {
-            response = JSON.parse(response);
-            
-            
-            //convert into arrays
-            let source = [];
-            for(let i = 0; i < response.length;i++){
-                source.push(response[i].name);
-            }
-            console.log(source);
-            
-            jQuery(id).autocomplete({
-                source:source,
-                delay:300,
-                minLength:0
-            });
-        });*/
+        jQuery(input).each(function () {
+            jQuery(this).autocomplete({
+                delay:0,
+                source:(request,response)=>{
+                    let data = {
+                    'action': 'patrickp_star_wars_query_hint',
+                    'search_term': request.term  
+                    };
+
+                    jQuery.get(ajax_object.ajax_url,data,function(responseData){
+                        let source = [];//the source that the auto complete will use
+                        responseData = JSON.parse(responseData);
+                        
+                        //need to build an array of names from the returned get data
+                        for(let i = 0; i < responseData.length;i++){
+                            source.push(responseData[i].name);
+                        }
+                        response(source);
+                    });
+                }
+            })
+        })
         
     }
     
+    //handles the query when the user presses enter or presses the submit button
     function submit(){
         let val = jQuery(this).children('input').val();
+        let widgetWrapper = jQuery(this).parent();
         var data = {
 			'action': 'patrickp_star_wars_query_submit',
 			'search_term': val
@@ -75,7 +51,7 @@ jQuery(document).ready(()=>{
             
             response = JSON.parse(response);
             if(!jQuery.isEmptyObject(response)){
-                displayResults(response);
+                displayResults(response,widgetWrapper);
             }
         });
         
@@ -83,10 +59,9 @@ jQuery(document).ready(()=>{
     }
     
     //displays the record
-    function displayResults(record){
+    function displayResults(record,widgetWrapper){
     
         record = record[0];
-        let widgetWrapper = form.parent();
         
         widgetWrapper.children('ul').remove();
         widgetWrapper.append('<ul></ul>');
@@ -99,7 +74,6 @@ jQuery(document).ready(()=>{
                 let printOut = '<div>' + col +':</div>' + '<div>' + record[i] + '</div>';
                 ol.append('<li class="' + PPSTARWARSCONST.OUTPUT_CLASSNAME +'">'+ printOut +'</li>');
             }
-        }
-        
+        }   
     }
 })
