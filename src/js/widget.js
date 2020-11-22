@@ -23,22 +23,25 @@ jQuery(document).ready(()=>{
             
             
             jQuery(input).each(function () {
-                let searchArray = []; //needed to store the autocomplete data for the keyup event handler
-
+                //needed to store the autocomplete data for the keyup event handler, forced as object to pass by reference
+                let searchArray = {
+                    searchArray:[]
+                }; 
+                
                 jQuery(this).autocomplete({
                     delay:delay,
                     minLength:minLength,
                     source:function(request,response) {source(request,response,searchArray);},
                     select:(event,ui)=>{StarWarsAjax.autoCompleteSubmit(this,ui.item.value);} //perform a search query if user clicks on a name
-                }).keyup(function (e) {keyUp.call(this,e,searchArray);}); 
+                }).keyup(function (e) {keyUp.call(this,e,searchArray.searchArray);}); 
             })
             
             //these functions are used in the jQuery autocomplete, these are helper functions for this class's function only
                 
             //this performs the ajax call,sets the response list for the auto complete, and returns the list
             function source(request,response,searchArray){
-                //empty searchArray
-                searchArray = [];
+                //array to hold the data
+                let source = [];
                 
                 let data = {
                         'action': PPSTARWARSCONST.ACTION_AJAX_HINT,
@@ -50,10 +53,10 @@ jQuery(document).ready(()=>{
 
                         //need to build an array of names from the returned get data
                         for(let i = 0; i < responseData.length;i++){
-                            searchArray.push(responseData[i].name);
+                            source.push(responseData[i].name);
                         }
-                        response(searchArray);
-                        console.log(searchArray);
+                        response(source);
+                        searchArray.searchArray = source;
                     });
             }
             
