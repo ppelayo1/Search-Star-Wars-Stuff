@@ -2,7 +2,7 @@
 jQuery(document).ready(()=>{
     class StarWarsAjax{
         //class members
-        widgetWrapper; //holds jQuery object of all starwars widgets
+        form; //holds jQuery object of all starwars widgets
         
         constructor(){
             //this function initizalizes the variables and event handlers
@@ -10,15 +10,17 @@ jQuery(document).ready(()=>{
         }
         //initialize all variables and set up event handlers
         initialize(){
-            this.widgetWrapper = jQuery('.' + PPSTARWARSCONST.WIDGET_CLASSNAME).children('form');
+            this.form = jQuery('.' + PPSTARWARSCONST.WIDGET_CLASSNAME).children('form');
+            this.form.submit(this.submit);
             
             this.setUpHintHandler();
         }
         
         setUpHintHandler(){
-            let input = jQuery(this.widgetWrapper).children('input');
+            let input = jQuery(this.form).children('input');
             let delay = 0; //delay in ms for the auto complete to appear
             let minLength = 2; //min length of string input before generating auto complete list
+            
             
             jQuery(input).each(function () {
                 let searchArray = []; //needed to store the autocomplete data for the keyup event handler
@@ -27,11 +29,11 @@ jQuery(document).ready(()=>{
                     delay:delay,
                     minLength:minLength,
                     source:function(request,response) {source(request,response,searchArray);},
-                    select:(event,ui)=>{autoCompleteSubmit(this,ui.item.value);} //perform a search query if user clicks on a name
+                    select:(event,ui)=>{StarWarsAjax.autoCompleteSubmit(this,ui.item.value);} //perform a search query if user clicks on a name
                 }).keyup(function (e) {keyUp.call(this,e,searchArray);}); 
             })
             
-            //these functions are used in the jQuery autocomplete
+            //these functions are used in the jQuery autocomplete, these are helper functions for this class's function only
                 
             //this performs the ajax call,sets the response list for the auto complete, and returns the list
             function source(request,response,searchArray){
@@ -51,6 +53,7 @@ jQuery(document).ready(()=>{
                             searchArray.push(responseData[i].name);
                         }
                         response(searchArray);
+                        console.log(searchArray);
                     });
             }
             
@@ -66,72 +69,71 @@ jQuery(document).ready(()=>{
                 for(let i = 0; i < searchArray.length;i++){
                     tempArray.push(searchArray[i].toLowerCase());
                 }
-
+                
                 //close auto complete if enter key pressed and a search term is matched
                 if(e.keyCode == 13 && (tempArray.indexOf(input) >= 0)){
                     jQuery(this).autocomplete('close');
                 }
             }
         }
-    }
-    
-    new StarWarsAjax();
-    //all the forms assigned to a variable
-    let form = jQuery('.' + PPSTARWARSCONST.WIDGET_CLASSNAME).children('form');
-    
-    //perform a search attempt when form submitted
-    form.submit(submit);
-    
-    //handles the query when the user presses enter or presses the submit button
-    function submit(){
-        let val = jQuery(this).children('input').val();
-        let widgetWrapper = jQuery(this).parent();
         
-        performAjax(val,widgetWrapper);
-        
-        return false; //don't want the submit to redirect
-    }
-    
-    //handles the query when the user clicks on a name from the auto complete
-    function autoCompleteSubmit(inputElement,val){
-        let widgetWrapper = jQuery(inputElement).parent().parent();
-        
-        performAjax(val,widgetWrapper);
-        
-    }
-    
-    //displays the record
-    function displayResults(record,widgetWrapper){
-        
-        record = record[0]; //one element array, removing it from an array by re-asigning.
-        
-        //create the ul
-        widgetWrapper.children('ul').remove();
-        widgetWrapper.append('<ul></ul>');
-        let ol = widgetWrapper.children('ul');
-        
-        //displays all the columns of the record
-        for(let i in record){
-            if(i.localeCompare('id')){
-                let regEx = /_/g;
-                let col = i.replace(regEx, " ");
-                let printOut = '<div>' + col +':</div>' + '<div>' + record[i] + '</div>';
-                ol.append('<li class="' + PPSTARWARSCONST.OUTPUT_CLASSNAME +'">'+ printOut +'</li>');
-            }
-        }   
-    }
-    
-    function performAjax(val,widgetWrapper){
-        var data = {
-			'action': 'patrickp_star_wars_query_submit',
-			'search_term': val
-		};
-        jQuery.get(ajax_object.ajax_url,data,function(response) {
+        //this function performs the ajax calls
+        static performAjax(val,widgetWrapper){
+            var data = {
+                'action': PPSTARWARSCONST.ACTION_AJAX_SUBMIT,
+                'search_term': val
+            };
             
-            response = JSON.parse(response);
-            if(!jQuery.isEmptyObject(response)){
-                displayResults(response,widgetWrapper);
-            }
-        });
+            
+            jQuery.get(ajax_object.ajax_url,data,function(response) {
+
+                response = JSON.parse(response);
+                if(!jQuery.isEmptyObject(response)){
+                    StarWarsAjax.displayResults(response,widgetWrapper);
+                }
+            });
+        }
+        
+        //this function displays the results
+        static displayResults(record,widgetWrapper){
+            record = record[0]; //one element array, removing it from an array by re-asigning.
+
+            //create the ul
+            widgetWrapper.children('ul').remove();
+            widgetWrapper.append('<ul></ul>');
+            let ol = widgetWrapper.children('ul');
+
+            //displays all the columns of the record
+            for(let i in record){
+                if(i.localeCompare('id')){
+                    let regEx = /_/g;
+                    let col = i.replace(regEx, " ");
+                    let printOut = '<div>' + col +':</div>' + '<div>' + record[i] + '</div>';
+                    ol.append('<li class="' + PPSTARWARSCONST.OUTPUT_CLASSNAME +'">'+ printOut +'</li>');
+                }
+            }   
+        }
+        
+        //the two types of submit functions, one for a enter submit, the other for a click of auto complete submit
+        
+        //called when enter key pressed
+        submit(){
+            let val = jQuery(this).children('input').val();
+            let widgetWrapper = jQuery(this).parent();
+            
+            StarWarsAjax.performAjax(val,widgetWrapper);
+
+            return false; //don't want the submit to redirect
+        }
+        
+        //clicking a name in the auto complete list
+        static autoCompleteSubmit(inputElement,val){
+            let widgetWrapper = jQuery(inputElement).parent().parent();
+
+            StarWarsAjax.performAjax(val,widgetWrapper);
+        }
+        
     }
+    
+    new StarWarsAjax();//initialize the widget
 })
