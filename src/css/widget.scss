@@ -46,8 +46,9 @@
 .ui-helper-hidden-accessible { position: absolute; left:-999em; }
 
 //makes the background of the row lightgrey when hovered
-.ui-menu-item:hover,ui-menu-item:focus{
+.ui-menu-item:hover,.auto-complete-active{
     background:lightgray;
+    border: 1px outset black;
     margin:0;
     padding:0.5rem 0 0 2rem;
 }

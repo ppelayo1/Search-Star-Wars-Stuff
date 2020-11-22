@@ -32,6 +32,7 @@ jQuery(document).ready(()=>{
                     delay:delay,
                     autoFocus:autoFocus,
                     minLength:minLength,
+                    focus:function(event,ui){focused(event,ui);},
                     source:function(request,response) {source(request,response,searchArray);},
                     select:(event,ui)=>{StarWarsAjax.autoCompleteSubmit(this,ui.item.value);} //perform a search query if user clicks on a name
                 }).keyup(function (e) {keyUp.call(this,e,searchArray.searchArray);}); 
@@ -68,11 +69,8 @@ jQuery(document).ready(()=>{
                 let input = jQuery(this).val(); //just the input held in the text box
                 let keyCodes = {
                     enter:13,
-                    downArrow:40
                 };
-                
-                console.log(searchArray);
-                console.log(e);
+            
                 input = input.toLowerCase(); //set that input lower case
                 
                 //set the autocomplete data to lower case
@@ -84,11 +82,19 @@ jQuery(document).ready(()=>{
                 if(e.keyCode == keyCodes.enter && (tempArray.indexOf(input) >= 0)){
                     jQuery(this).autocomplete('close');
                 }
+            }
+            
+            //focus handler
+            function focused(e,ui){
+                let value = ui.item.value;//the focused autocomplete term
+                let autoCompleteList = jQuery(e.currentTarget).children(); //the list of autocomplete terms
                 
-                //check if user pressed down
-                if(e.keyCode == 40){
-                    
-                }
+                //need to remove the focused class from all the terms, then put it on the only focused one
+                jQuery(autoCompleteList).each(function (){jQuery(this).removeClass(PPSTARWARSCONST.FOCUSED_AUTOCOMPLETE_CLASS);});
+                let element = jQuery(autoCompleteList).filter(function (i){
+                    return !jQuery(this).text().localeCompare(value);
+                });
+                jQuery(element).addClass(PPSTARWARSCONST.FOCUSED_AUTOCOMPLETE_CLASS);
             }
         }
         
