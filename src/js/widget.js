@@ -20,7 +20,7 @@ jQuery(document).ready(()=>{
             let input = jQuery(this.form).children('input');
             let delay = 0; //delay in ms for the auto complete to appear
             let minLength = 2; //min length of string input before generating auto complete list
-            
+            let autoFocus = true;
             
             jQuery(input).each(function () {
                 //needed to store the autocomplete data for the keyup event handler, forced as object to pass by reference
@@ -30,6 +30,7 @@ jQuery(document).ready(()=>{
                 
                 jQuery(this).autocomplete({
                     delay:delay,
+                    autoFocus:autoFocus,
                     minLength:minLength,
                     source:function(request,response) {source(request,response,searchArray);},
                     select:(event,ui)=>{StarWarsAjax.autoCompleteSubmit(this,ui.item.value);} //perform a search query if user clicks on a name
@@ -65,7 +66,13 @@ jQuery(document).ready(()=>{
                 //variables
                 let tempArray = []; //temp holds the autocomplete data in lower case
                 let input = jQuery(this).val(); //just the input held in the text box
+                let keyCodes = {
+                    enter:13,
+                    downArrow:40
+                };
                 
+                console.log(searchArray);
+                console.log(e);
                 input = input.toLowerCase(); //set that input lower case
                 
                 //set the autocomplete data to lower case
@@ -74,8 +81,13 @@ jQuery(document).ready(()=>{
                 }
                 
                 //close auto complete if enter key pressed and a search term is matched
-                if(e.keyCode == 13 && (tempArray.indexOf(input) >= 0)){
+                if(e.keyCode == keyCodes.enter && (tempArray.indexOf(input) >= 0)){
                     jQuery(this).autocomplete('close');
+                }
+                
+                //check if user pressed down
+                if(e.keyCode == 40){
+                    
                 }
             }
         }

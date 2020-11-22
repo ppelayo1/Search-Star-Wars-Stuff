@@ -1,5 +1,6 @@
 .starWarsWidget {
   border: 2px inset black;
+  min-height: 200px;
   padding: 1em 0 1em 0;
   background: lightgray;
 }
@@ -11,6 +12,7 @@
 .starWarsWidget form label {
   text-align: center;
   margin-bottom: 1em;
+  font-size: 24px;
 }
 .starWarsWidget form input {
   border: 2px outset black;
@@ -41,7 +43,7 @@
   left: -999em;
 }
 
-.ui-menu-item:hover {
+.ui-menu-item:hover, ui-menu-item:focus {
   background: lightgray;
   margin: 0;
   padding: 0.5rem 0 0 2rem;
