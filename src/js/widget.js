@@ -1,5 +1,24 @@
 
 jQuery(document).ready(()=>{
+    class StarWarsAjax{
+        //class members
+        widgetWrapper; //holds jQuery object of all starwars widgets
+        
+        constructor(){
+            //this function initizalizes the variables and event handlers
+            this.initialize();
+        }
+        //initialize all variables and set up event handlers
+        initialize(){
+            this.widgetWrapper = jQuery('.' + PPSTARWARSCONST.WIDGET_CLASSNAME).children('form');
+        }
+        
+        setUpHintHandler(){
+            
+        }
+    }
+    
+    
     //all the forms assigned to a variable
     let form = jQuery('.' + PPSTARWARSCONST.WIDGET_CLASSNAME).children('form');
     
