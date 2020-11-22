@@ -129,10 +129,47 @@ jQuery(document).ready(()=>{
                 if(i.localeCompare('id')){
                     let regEx = /_/g;
                     let col = i.replace(regEx, " ");
+                    modifyResults(i);
                     let printOut = '<div>' + col +':</div>' + '<div>' + record[i] + '</div>';
                     ol.append('<li class="' + PPSTARWARSCONST.OUTPUT_CLASSNAME +'">'+ printOut +'</li>');
                 }
-            }   
+            }
+            
+            
+            //function to take the record and modify the output depending on type of table
+            function modifyResults(col){
+                //These are columns of the record that need to have their output adjusted
+                let person = {
+                    height:'height',
+                    mass:'mass'
+                };
+                let planet = {
+                    rotation_period:'rotation_period',
+                    orbital_period:'orbital_period'
+                };
+                
+                switch(col){
+                    //person
+                    case person.height:
+                        console.log('height');
+                        break;
+                    
+                    case person.mass:
+                        console.log('mass');
+                        break;
+                        
+                    //planets
+                    case planet.rotation_period:
+                        console.log('rotation period');
+                        break;
+                    
+                    case planet.orbital_period:
+                        console.log('orbital period');
+                        break;
+                }
+               
+            }
+            
         }
         
         //the two types of submit functions, one for a enter submit, the other for a click of auto complete submit
