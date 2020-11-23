@@ -7,8 +7,11 @@
     function buildInsert(){
         global $patrickP_StarWars_TableController;
         
-        $patrickP_StarWars_TableController->buildAllTables();
-        $patrickP_StarWars_TableController->insertData();
+        //check if tables are already built, if not then build them
+        if(!$patrickP_StarWars_TableController->chkTablesExist()){
+            $patrickP_StarWars_TableController->buildAllTables();
+            $patrickP_StarWars_TableController->insertData();
+        }
         
     }
     //drop the tables

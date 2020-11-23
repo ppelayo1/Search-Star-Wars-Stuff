@@ -27,6 +27,24 @@ abstract class PatrickP_StarWars_AbstractParent{
         $this->filmsTab = $starWarsConstants['TABLENAMES']['FILMS_TAB'];
         $this->vehiclesTab = $starWarsConstants['TABLENAMES']['VEHICLES_TAB'];
     }
+    //checks to see if a table already exists
+    public function tablesExistCheck(){
+        global $wpdb;
+        // all the tables by prefix in an array
+        $arrayOfTables = [$wpdb->prefix . $this->personsTab,$wpdb->prefix . $this->planetsTab,$wpdb->prefix . $this->star_shipsTab,$wpdb->prefix . $this->speciesTab,$wpdb->prefix . $this->filmsTab,$wpdb->prefix . $this->vehiclesTab];
+        $exists = true;
+        
+        //cycle thru all elements and if a table is missing set flag to false
+        foreach($arrayOfTables as $table){
+            $sql = "SHOW TABLES LIKE '".$table."'";
+            
+            if($wpdb->query($sql) != 1){
+                $exists = false;
+            }
+        
+        }
+        return $exists;
+    }
 }
 
 //this class's purpose is to add the tables to the database
@@ -431,6 +449,10 @@ class PatrickP_StarWars_TableController{
     
     public function removeAllTables(){
         $this->patrickP_StarWars_RemoveTables->removeAll();
+    }
+    
+    public function chkTablesExist(){
+        return $this->patrickP_StarWars_RemoveTables->tablesExistCheck();
     }
 }
 ?>
