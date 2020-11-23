@@ -1,8 +1,11 @@
 .starWarsWidget{
+    font-family: 'Lato', sans-serif;
+    font-family: 'Merriweather Sans', sans-serif;
     border:2px inset black;
     min-height:200px;
     padding: 1em 0 1em 0;
     background:lightgray;
+    
     form{
         width:70%;
         margin-left:auto;
@@ -12,6 +15,7 @@
             text-align: center;
             margin-bottom:1em;
             font-size:24px;
+            font-weight: bold;
         }
         input{
             border:2px outset black;
@@ -32,7 +36,9 @@
         li{
             display:grid;
             grid-template-columns: 55% auto;
-            
+            div:nth-child(1){
+                font-weight: 600;
+            }
             div:nth-child(2){
                 text-align: right;
                 padding-right:20px;
