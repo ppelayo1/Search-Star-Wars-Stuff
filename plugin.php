@@ -12,7 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Block Initializer.
  */
 require_once plugin_dir_path( __FILE__ ) . 'src/init.php';
-require_once plugin_dir_path( __FILE__ ) . 'uninstall.php';
 
 //activation and uninstall hooks
 register_activation_hook( __FILE__, "setUp" );
