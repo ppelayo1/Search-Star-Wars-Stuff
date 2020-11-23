@@ -188,8 +188,6 @@ class PatrickP_StarWars_RemoveTables extends PatrickP_StarWars_AbstractParent{
 
         $table_name = $wpdb->prefix . $table; 
 
-        
-        print_r($table_name);
         $sql = "DROP TABLE $table_name;";
         $wpdb->query($sql);
     }
