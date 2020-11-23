@@ -12,11 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Block Initializer.
  */
 require_once plugin_dir_path( __FILE__ ) . 'src/init.php';
+require_once plugin_dir_path( __FILE__ ) . 'uninstall.php';
 
 //activation and uninstall hooks
 register_activation_hook( __FILE__, "setUp" );
 register_activation_hook( __FILE__, "buildInsert" );
-register_deactivation_hook(plugin_dir_path( __FILE__ ) . 'uninstall.php', 'dropTables' );
+register_uninstall_hook(__FILE__, 'dropTables' );
 
 //widgit initialization hook
 add_action( 'widgets_init', 'register_star_wars_widget' );
