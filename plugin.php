@@ -23,5 +23,6 @@ add_action( 'widgets_init', 'register_star_wars_widget' );
 //Ajax handler functions
 add_action( 'wp_ajax_patrickp_star_wars_query_hint', 'starWarsAjaxHint');
 add_action( 'wp_ajax_patrickp_star_wars_query_submit', 'starWarsAjaxSubmit');
-
+add_action( 'wp_ajax_nopriv_patrickp_star_wars_query_hint', 'starWarsAjaxHint' );
+add_action( 'wp_ajax_nopriv_patrickp_star_wars_query_submit', 'starWarsAjaxSubmit' );
 ?>
