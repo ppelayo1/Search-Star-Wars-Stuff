@@ -171,23 +171,23 @@ jQuery(document).ready(()=>{
                         
                     //planets
                     case planet.rotation_period:
-                        recordVal+= ' hours';
+                        recordVal+= (isNaN(recordVal) ? '' : ' hours' );
                         break;
                     
                     case planet.orbital_period:
-                        recordVal+= ' days';
+                        recordVal+= (isNaN(recordVal) ? '' : ' days' );
                         break;
                         
                     case planet.diameter:
-                        recordVal+='km';
+                        recordVal+=(isNaN(recordVal) ? '' : 'km' );
                         break;
                     
                     case planet.surface_water:
-                        recordVal+='%';
+                        recordVal+=(isNaN(recordVal) ? '' : '%' );
                         break;
                     //ships and vehicles
                     case shipsNvehicles.length:
-                        recordVal+= 'm';
+                        recordVal+= (isNaN(recordVal) ? '' : 'm' );
                         break;
                         
                     //species
@@ -196,7 +196,7 @@ jQuery(document).ready(()=>{
                         break;
                     
                     case species.average_lifespan:
-                        recordVal+= 'yrs';
+                        recordVal+= (isNaN(recordVal) ? '' : ' yrs' );
                         break;
                 }
                 return recordVal;
