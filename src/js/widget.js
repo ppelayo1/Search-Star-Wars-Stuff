@@ -107,7 +107,7 @@ jQuery(document).ready(()=>{
             
             
             jQuery.get(ajax_object.ajax_url,data,function(response) {
-
+                
                 response = JSON.parse(response);
                 if(!jQuery.isEmptyObject(response)){
                     StarWarsAjax.displayResults(response,widgetWrapper);
@@ -129,7 +129,7 @@ jQuery(document).ready(()=>{
                 if(i.localeCompare('id')){
                     let regEx = /_/g;
                     let col = i.replace(regEx, " ");
-                    modifyResults(i);
+                    record[i] = modifyResults(i,record[i]);
                     let printOut = '<div>' + col +':</div>' + '<div>' + record[i] + '</div>';
                     ol.append('<li class="' + PPSTARWARSCONST.OUTPUT_CLASSNAME +'">'+ printOut +'</li>');
                 }
@@ -137,7 +137,8 @@ jQuery(document).ready(()=>{
             
             
             //function to take the record and modify the output depending on type of table
-            function modifyResults(col){
+            function modifyResults(col,recordVal){
+                
                 //These are columns of the record that need to have their output adjusted
                 let person = {
                     height:'height',
@@ -145,29 +146,84 @@ jQuery(document).ready(()=>{
                 };
                 let planet = {
                     rotation_period:'rotation_period',
-                    orbital_period:'orbital_period'
+                    orbital_period:'orbital_period',
+                    diameter:'diameter',
+                    surface_water:'surface_water'
+                };
+                let shipsNvehicles = {
+                    length:'length'
+                };
+                
+                let species = {
+                    average_lifespan:'average_lifespan',
+                    average_height:'average_height'
                 };
                 
                 switch(col){
                     //person
                     case person.height:
-                        console.log('height');
+                        recordVal = cmToFtInch(recordVal);
                         break;
                     
                     case person.mass:
-                        console.log('mass');
+                        recordVal = kgToLb(recordVal);
                         break;
                         
                     //planets
                     case planet.rotation_period:
-                        console.log('rotation period');
+                        recordVal+= ' hours';
                         break;
                     
                     case planet.orbital_period:
-                        console.log('orbital period');
+                        recordVal+= ' days';
+                        break;
+                        
+                    case planet.diameter:
+                        recordVal+='km';
+                        break;
+                    
+                    case planet.surface_water:
+                        recordVal+='%';
+                        break;
+                    //ships and vehicles
+                    case shipsNvehicles.length:
+                        recordVal+= 'm';
+                        break;
+                        
+                    //species
+                    case species.average_height:
+                        recordVal = cmToFtInch(recordVal);
+                        break;
+                    
+                    case species.average_lifespan:
+                        recordVal+= 'yrs';
                         break;
                 }
-               
+                return recordVal;
+                
+                //utility function
+                function cmToFtInch(cm){
+                    let returnVal = cm;
+                    
+                    if(!isNaN(cm)){
+                        let inch = Math.round(cm/2.54);
+                        let feet = parseInt(inch/12); //final feet
+                        inch = inch - (feet * 12);      //final inches
+
+                        returnVal = feet + "ft " + inch + "in";
+                    }
+                    return returnVal;
+                }
+                
+                function kgToLb(kg){
+                    let returnVal = kg;
+                    
+                    if(!isNaN(kg)){
+                        let lb = Math.round(kg / 0.45359237);
+                        returnVal = lb + 'lb';
+                    }
+                    return returnVal;
+                }
             }
             
         }
