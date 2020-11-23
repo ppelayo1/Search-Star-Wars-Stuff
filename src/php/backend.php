@@ -14,9 +14,5 @@
         }
         
     }
-    //drop the tables
-    function dropTables(){
-        global $patrickP_StarWars_TableController;
-        $patrickP_StarWars_TableController->removeAllTables();
-    }
+    
 ?>
