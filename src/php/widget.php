@@ -42,15 +42,20 @@ class PatrickP_Star_Wars_Widget extends WP_Widget {
      */
     public function widget( $args, $instance ) {
         extract( $args );
-        
+        $title = $this->defaultTitleFieldName;
         $widgetID = $this->get_field_id($this->widgetID); //full ID
         
         //display the widget
         echo $before_widget;
+        
+        //if user neterd a title set the title variable as necessary
+        if(isset($instance[$this->titleFieldName])){
+            $title = $instance[$this->titleFieldName];
+        }
     
         echo "<div class='{$this->widgetClass}'>
                 <form>
-                    <label for='{$widgetID}'>{$instance[$this->titleFieldName]} </label>
+                    <label for='{$widgetID}'>{$title} </label>
                     <input id='{$widgetID}' placeholder='$this->widgetPlaceHolder' type='search'>
                 </form> 
             </div>";
