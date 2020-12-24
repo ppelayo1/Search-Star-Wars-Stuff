@@ -9,6 +9,7 @@
             "SPECIES_TAB" => "patrickp_starwars_search_species",
             "FILMS_TAB" => "patrickp_starwars_search_films",
             "VEHICLES_TAB" => "patrickp_starwars_search_vehicles"
-        ]
+        ],
+        'FILENAME' => "starwarsData.json"
     ];
 ?>

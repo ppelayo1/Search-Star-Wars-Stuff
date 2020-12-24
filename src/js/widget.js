@@ -55,7 +55,7 @@ jQuery(document).ready(()=>{
 
                         //need to build an array of names from the returned get data
                         for(let i = 0; i < responseData.length;i++){
-                            source.push(responseData[i].name);
+                            source.push(responseData[i]);
                         }
                         response(source);
                         searchArray.searchArray = source;
