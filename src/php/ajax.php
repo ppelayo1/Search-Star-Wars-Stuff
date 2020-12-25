@@ -59,9 +59,7 @@
             if(!strcasecmp($dataSet[$i]->name,$search_term)){
                 $outputElement = $i;
                 $matchFound = true;
-               
-            }
-            
+            }     
         }
         
         //return the matched object
