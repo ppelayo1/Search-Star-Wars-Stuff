@@ -22,10 +22,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 require_once plugin_dir_path( __FILE__ ) . 'src/init.php';
 
-//activation and uninstall hooks
-register_activation_hook( __FILE__, "setUp" );
-register_activation_hook( __FILE__, "buildInsert" );
-
 //widgit initialization hook
 add_action( 'widgets_init', 'register_star_wars_widget' );
 

@@ -1,10 +1,4 @@
 <?php
-    function setUp(){
-        include plugin_dir_path( __FILE__ ) . 'php/constants.php';
-        include plugin_dir_path( __FILE__ ) . 'php/classes.php';
-        include plugin_dir_path( __FILE__ ) . 'php/backend.php';
-    }
-
     function register_star_wars_widget() {
         include plugin_dir_path( __FILE__ ) . 'php/constants.php';
         include plugin_dir_path( __FILE__ ) . 'php/widget.php';
