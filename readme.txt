@@ -2,7 +2,7 @@
 Contributors: PatrickPelayo
 Tags: star wars, search star, star, wars, darth vader
 Requires at least: 5.5.3
-Tested up to: ^5.5.3
+Tested up to: 5.6.0
 Stable tag: 1.0.0
 Requires PHP: 7.0
 License: GPLv2 or later
@@ -27,10 +27,8 @@ Under widgets select the widget location, and then add "Search Star Wars" to tha
 > This section provides a technical overview of the plugin.
 
 The main files are located in the SRC folder.
-PHP files "classes.php" and "backend.php" both handle the creation of the tables and removal of tables from the database.
-The tables are populated with star wars data obtained from https://swapi.dev/
 
-"widget.php" defines the widget for wordpress, and "ajax.php" works with the "widget.js" in requests for data from the database.
+"widget.php" defines the widget for wordpress, and "ajax.php" works with the "widget.js" in accessing data from the "starwarsData.json" file.
 
 For JS the "widget.js" handles the ajax calls to the database by sending the requests to "ajax.php".
 "widget.js" once it recieves data builds auto complete hints, and builds the display when a record of data is recieved.
@@ -38,6 +36,10 @@ For JS the "widget.js" handles the ajax calls to the database by sending the req
 CSS files "jqueryAutoComplete.css" of which was taken from https://jqueryui.com/themeroller/
 I took the classes needed for the basic auto complete feature.
 "widget.css" styles the widget and the modifies the auto-complete classes as necessary
+
+"starwarsData.json" is the only json file present. It is a local collection of information related to Star Wars characters,ships,vehicles,people, and the films. It is accessed and used by "ajax.php"
+
+No service calls are made to obtain the data thru this plugin, but the data used to create the "starwarsData.json" file was originally obtained thru https://swapi.dev/, of which obtained the data from open sources such as wookieepedia.
 
 == Screenshots ==
 
@@ -53,7 +55,4 @@ I took the classes needed for the basic auto complete feature.
 * first release
 	
 == Frequently Asked Questions ==
-
-
- 
  
