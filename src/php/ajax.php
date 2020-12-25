@@ -4,17 +4,27 @@
         //need to include the constants
         //local variables
         global $starWarsConstants;
+        $search_term = stripslashes($_GET['search_term']);
         $url =  plugin_dir_url(dirname(__FILE__)) . 'json/' . $starWarsConstants['FILENAME'];
         $dataSet = null;
         $names = []; //array to hold all the names found in dataSet
+        $regex = "/" . $search_term . ".+|.+" . $search_term . ".+|.+" . $search_term . "/i" ; //checks if the input is present in the begining, middle, or end of the strings
+        
         //open the file
         $dataSet = json_decode(file_get_contents($url));
         
         foreach($dataSet as $element){
             array_push($names,$element->name);
         }
+        $val = preg_grep($regex,$names);
+        $returnVal = [];
         
-        echo json_encode($names);
+        foreach($val as $v){
+            array_push($returnVal,$v);
+        }
+        
+        echo json_encode($val);
+        //echo json_encode($names);
         
         wp_die();
     }
