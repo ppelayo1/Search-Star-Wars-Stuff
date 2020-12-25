@@ -44,6 +44,7 @@ jQuery(document).ready(()=>{
             function source(request,response,searchArray){
                 //array to hold the data
                 let source = [];
+                let maxListSize = 7; //max size of the autocomplete list
                 
                 let data = {
                         'action': PPSTARWARSCONST.ACTION_AJAX_HINT,
@@ -54,7 +55,7 @@ jQuery(document).ready(()=>{
                         responseData = JSON.parse(responseData);
 
                         //need to build an array of names from the returned get data
-                        for(let i = 0; i < responseData.length;i++){
+                        for(let i = 0; i < responseData.length && i < maxListSize;i++){
                             source.push(responseData[i]);
                         }
                         response(source);
@@ -117,7 +118,7 @@ jQuery(document).ready(()=>{
         
         //this function displays the results
         static displayResults(record,widgetWrapper){
-            record = record[0]; //one element array, removing it from an array by re-asigning.
+            
 
             //create the ul
             widgetWrapper.children('ul').remove();

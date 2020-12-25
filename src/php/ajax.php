@@ -9,22 +9,28 @@
         $dataSet = null;
         $names = []; //array to hold all the names found in dataSet
         $regex = "/" . $search_term . ".+|.+" . $search_term . ".+|.+" . $search_term . "/i" ; //checks if the input is present in the begining, middle, or end of the strings
+        $returnArray = [];
+        $tempArray = [];
+        
+        
         
         //open the file
         $dataSet = json_decode(file_get_contents($url));
         
+        //build an array of only the names
         foreach($dataSet as $element){
             array_push($names,$element->name);
         }
-        $val = preg_grep($regex,$names);
-        $returnVal = [];
+        //match with regex and return the names that match
+        $tempArray = preg_grep($regex,$names);
         
-        foreach($val as $v){
-            array_push($returnVal,$v);
+        //takes only the values to return, ensures an array is returned and not an object
+        foreach($tempArray as $element){
+            array_push($returnArray,$element);
         }
         
-        echo json_encode($val);
-        //echo json_encode($names);
+        //return the results to javascript client
+        echo json_encode($returnArray);
         
         wp_die();
     }
@@ -32,25 +38,34 @@
     //handles the ajax submit
     function starWarsAjaxSubmit() {
         //need to include the constants
+        //local variables
         global $starWarsConstants;
-        global $wpdb;
+        $url =  plugin_dir_url(dirname(__FILE__)) . 'json/' . $starWarsConstants['FILENAME'];
         $search_term = stripslashes($_GET['search_term']);
-        $output = [];
+        $outputElement = null;
+        $dataSet = null;
+        $matchFound = false;
+        $size = null;
         
-        //array of tables
-        $tabArray = $starWarsConstants['TABLENAMES'];
+        //open the file
+        $dataSet = json_decode(file_get_contents($url));
         
-        //only perform a query if input is in the search_term
-        if(strcmp($search_term, ' ')){
-            foreach($tabArray as $table){
-                $tableName = $wpdb->prefix .$table;
-                $sql = "SELECT * FROM $tableName WHERE name = %s";
-                $sql = $wpdb->prepare($sql,$search_term);
-                $sql = $wpdb->get_results($sql);
-                $output = array_merge($sql,$output);
+        //get dataSet size
+        $size = count($dataSet);
+        
+        //find the searched item, if it exists, get its element, and set the flag
+        for($i = 0; $i < $size && !$matchFound;$i++){
+            
+            if(!strcasecmp($dataSet[$i]->name,$search_term)){
+                $outputElement = $i;
+                $matchFound = true;
+               
             }
+            
         }
-        echo json_encode($output);
+        
+        //return the matched object
+        echo json_encode($dataSet[$outputElement]);
         
         wp_die();
     }
