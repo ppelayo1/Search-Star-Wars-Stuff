@@ -14,8 +14,7 @@ Search Star Wars Stuff
 Widget that lets you search characters,vehicles,planets, and etc. for Star Wars.
 
 = Instructions =
-Install the plugin, it may take about a minute to populate the tables in the database. 
-This only needs to be done once unless the plugin is deleted. Deleting the plugin will remove the created tables from the database.
+Install the plugin thru the plugin manager tab.
 
 Then add the widget to your site's widget sidebar location as you would any other widget. This can be done from the main page by moving your mouse over apperance
 and then clicking either Customize, or widgets.
@@ -42,7 +41,9 @@ I took the classes needed for the basic auto complete feature.
 No service calls are made to obtain the data thru this plugin, but the data used to create the "starwarsData.json" file was originally obtained thru https://swapi.dev/, of which obtained the data from open sources such as wookieepedia.
 
 == Screenshots ==
-
+1. Example of widget before searching.
+2. Example of widget when typing into search bar.
+3. Example of a search result from the widget.
 
 == Changelog ==
 
