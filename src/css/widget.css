@@ -24,6 +24,7 @@
   margin-top: 2em;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 1em 0 1em;
 }
 @media only screen and (max-width: 450px) {
   .starWarsWidget ul {
