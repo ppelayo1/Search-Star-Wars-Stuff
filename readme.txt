@@ -3,7 +3,7 @@ Contributors: PatrickPelayo
 Tags: star wars, search star, star, wars, darth vader
 Requires at least: 5.5.3
 Tested up to: 5.6.0
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -47,10 +47,16 @@ No service calls are made to obtain the data thru this plugin, but the data used
 
 == Changelog ==
 
+= 1.1 =
+* updated the appearance of the plugin
+
 = 1.0 =
 * first release
 	
 == Upgrade Notice ==
+
+= 1.1 =
+* Provides a better apperance of the widget.
 
 = 1.0 =
 * first release
