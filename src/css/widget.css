@@ -3,46 +3,33 @@
   font-family: "Merriweather Sans", sans-serif;
   border: 2px inset black;
   min-height: 200px;
-  padding: 1em 0 1em 0;
-  background: lightgray;
-}
-.starWarsWidget form {
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+  padding: 1em 2em 1em 2em;
+  max-width: 18em;
 }
 .starWarsWidget form label {
-  margin-bottom: 1em;
-  font-size: 24px;
-  font-weight: bold;
+  font-family: "Luckiest Guy", cursive;
+  font-size: 28px;
+  color: black;
+  display: block;
+  margin-bottom: 8px;
 }
 .starWarsWidget form input {
   border: 2px outset black;
+  width: 100%;
 }
 .starWarsWidget ul {
   margin-top: 2em;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 1em 0 1em;
-}
-@media only screen and (max-width: 450px) {
-  .starWarsWidget ul {
-    width: 90%;
-  }
 }
 .starWarsWidget ul li {
   display: grid;
-  grid-template-columns: 55% auto;
+  grid-template-columns: 50% auto;
 }
 .starWarsWidget ul li div:nth-child(1) {
   font-weight: 600;
-  text-align: right;
-  margin-right: 2em;
+  text-align: left;
 }
 .starWarsWidget ul li div:nth-child(2) {
-  text-align: left;
-  padding-right: 20px;
+  text-align: right;
 }
 
 .ui-helper-hidden-accessible {
