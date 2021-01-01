@@ -9,10 +9,11 @@
         
         label{
             font-family: 'Luckiest Guy', cursive;
-            font-size:28px;
+            font-size:29px;
             color:black;
             display:block;
             margin-bottom:8px;
+            width:110%;
         }
         input{
             border:2px outset black;
@@ -65,4 +66,11 @@
     border: 1px outset black;
     margin:0;
     padding:0.5rem 0 0 0rem;
+    font-family: 'Libre Caslon Text', serif;
+}
+
+.ui-menu-item{
+    margin:0;
+    padding:0.5rem 0 0 0rem;
+    font-family: 'Libre Caslon Text', serif;
 }
