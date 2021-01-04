@@ -130,9 +130,7 @@ jQuery(document).ready(()=>{
                 if(i.localeCompare('id')){
                     let regEx = /_/g;
                     let col = i.replace(regEx, " ");
-                    col = col.charAt(0).toUpperCase() + col.slice(1); //set first letter to uppercase
                     record[i] = modifyResults(i,record[i]);
-                    
                     let printOut = '<div>' + col +':</div>' + '<div>' + record[i] + '</div>';
                     ol.append('<li class="' + PPSTARWARSCONST.OUTPUT_CLASSNAME +'">'+ printOut +'</li>');
                 }

@@ -1,0 +1,64 @@
+.starWarsWidget {
+  font-family: "Lato", sans-serif;
+  font-family: "Merriweather Sans", sans-serif;
+  border: 2px inset black;
+  min-height: 200px;
+  padding: 1em 0 1em 0;
+  background: lightgray;
+}
+.starWarsWidget form {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.starWarsWidget form label {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 24px;
+  font-weight: bold;
+  display: block;
+}
+.starWarsWidget form input {
+  border: 2px outset black;
+  margin: 0 auto 0 auto;
+  display: block;
+  width: 100%;
+}
+.starWarsWidget ul {
+  width: 70%;
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+}
+@media only screen and (max-width: 450px) {
+  .starWarsWidget ul {
+    width: 90%;
+  }
+}
+.starWarsWidget ul li {
+  display: grid;
+  margin: 2rem 0 0 0;
+  grid-template-columns: 55% auto;
+}
+.starWarsWidget ul li div:nth-child(1) {
+  font-weight: 600;
+}
+.starWarsWidget ul li div:nth-child(2) {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.ui-helper-hidden-accessible {
+  position: absolute;
+  left: -999em;
+}
+
+.ui-menu-item:hover, .auto-complete-active {
+  background: lightblue;
+  border: 1px outset black;
+  margin: 0;
+  padding: 0.5rem 0 0 2rem;
+}
+
+/*# sourceMappingURL=widget.css.map */

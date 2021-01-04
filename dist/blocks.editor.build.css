@@ -1,0 +1,40 @@
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.starWarsEditor {
+  font-family: 'Lato', sans-serif;
+  font-family: 'Merriweather Sans', sans-serif;
+  border: 2px inset black;
+  min-height: 200px;
+  padding: 1em 0 1em 0;
+  background: lightgray; }
+  .starWarsEditor form {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto; }
+    .starWarsEditor form input {
+      text-align: center;
+      margin: 0 auto 1em auto;
+      font-size: 24px;
+      font-weight: bold;
+      display: block;
+      background: inherit;
+      border: none; }
+    .starWarsEditor form input:focus {
+      outline: none;
+      border: 2px solid orangered; }
+    .starWarsEditor form p {
+      border: 2px outset black;
+      margin: 0 auto 0 auto;
+      display: block;
+      width: 100%;
+      background: white; }
