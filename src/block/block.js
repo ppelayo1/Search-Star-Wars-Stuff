@@ -126,6 +126,7 @@ registerBlockType( 'cgb/block-search-star-wars', {
             title = PPSTARWARSCONST.WIDGET_DEFAULT_TITLE;
         }
 		return (
+                
                 <div className={PPSTARWARSCONST.WIDGET_CLASSNAME}>
                     <form>
                         <label for={id}>{title}</label>

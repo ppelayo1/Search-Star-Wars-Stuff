@@ -4,3 +4,14 @@
  * CSS for both Frontend+Backend.
  */
 
+.starWarsWidget{
+    ul{
+        padding-left:0;
+    }
+}
+
+//applied if the widget is being forced into a larger width than the default 18em
+.starWarsWidgetResized{
+    text-align: center;
+    width: 100%;
+}

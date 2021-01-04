@@ -9,3 +9,9 @@
  *
  * CSS for both Frontend+Backend.
  */
+.starWarsWidget ul {
+  padding-left: 0; }
+
+.starWarsWidgetResized {
+  text-align: center;
+  width: 100%; }

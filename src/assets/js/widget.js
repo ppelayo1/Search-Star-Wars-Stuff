@@ -1,5 +1,19 @@
 
 jQuery(document).ready(()=>{
+    //simple function to check the width of all starwars widgets and set the text-align center class to the header if widget is greater than 324px width
+    function chkWidgetWidth(){
+        let className = '.' + PPSTARWARSCONST.WIDGET_CLASSNAME;
+        jQuery(className).each(function (i) {
+            let label = jQuery(this).find('label');
+            let width = jQuery(this).outerWidth();
+            
+            if(width > PPSTARWARSCONST.WIDGET_MAX_WIDTH){
+                jQuery(label).addClass(PPSTARWARSCONST.WIDGET_CENTER_TEXT);
+            }
+        });    
+    }
+    
+    
     class StarWarsAjax{
         //class members
         form; //holds jQuery object of all starwars widgets
@@ -253,4 +267,5 @@ jQuery(document).ready(()=>{
     }
     
     new StarWarsAjax();//initialize the widget
+    chkWidgetWidth(); //check the sizes of each widget and center the header as needed
 })

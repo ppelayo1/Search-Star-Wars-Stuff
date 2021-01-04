@@ -6,26 +6,23 @@
  */
 
 .starWarsEditor{
-    font-family: 'Lato', sans-serif;
-    font-family: 'Merriweather Sans', sans-serif;
     border:2px inset black;
     min-height:200px;
-    padding: 1em 0 1em 0;
-    background:lightgray;
+    padding: 18px 36px 18px 36px;
+    max-width:324px;
+    background:white;
     
-    form{
-        width:70%;
-        margin-left:auto;
-        margin-right:auto;
-        
+    form{    
         input{
-            text-align:center;
-            margin:0 auto 1em auto;
-            font-size:24px;
-            font-weight:bold;
+            font-family: 'Luckiest Guy', cursive;
+            color:black;
+            width:100%;
+            font-size:29px;
             display:block;
             background:inherit;
             border:none;
+            font-weight: 500;
+            padding:0;
         }
         input:focus{
             outline:none;
