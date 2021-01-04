@@ -7,7 +7,7 @@ class PatrickP_Star_Wars_Widget extends WP_Widget {
     protected $defaultTitleFieldName;
     protected $widgetPlaceHolder;
     protected $widgetClass;
-    
+    protected $widgetHeader;
     /**
      * Register widget with WordPress.
      */
@@ -30,6 +30,7 @@ class PatrickP_Star_Wars_Widget extends WP_Widget {
         $this->defaultTitleFieldName = 'Search Star Wars'; //Default title name for the star wars search bar
         $this->widgetPlaceHolder = 'Search';
         $this->widgetClass = 'starWarsWidget';
+        $this->widgetHeader ='starWarsWidgetLeftHeader';
     }
  
     /**
@@ -55,7 +56,7 @@ class PatrickP_Star_Wars_Widget extends WP_Widget {
     
         echo "<div class='{$this->widgetClass}'>
                 <form>
-                    <label for='{$widgetID}'>{$title} </label>
+                    <label class='{$this->widgetHeader}' for='{$widgetID}'>{$title} </label>
                     <input id='{$widgetID}' placeholder='$this->widgetPlaceHolder' type='search'>
                 </form> 
             </div>";

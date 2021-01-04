@@ -7,8 +7,10 @@ jQuery(document).ready(()=>{
             let label = jQuery(this).find('label');
             let width = jQuery(this).outerWidth();
             
+            //check the widths and make the addition of the class, remove old class
             if(width > PPSTARWARSCONST.WIDGET_MAX_WIDTH){
                 jQuery(label).addClass(PPSTARWARSCONST.WIDGET_CENTER_TEXT);
+                jQuery(label).removeClass(PPSTARWARSCONST.WIDGET_LEFT_TEXT);
             }
         });    
     }

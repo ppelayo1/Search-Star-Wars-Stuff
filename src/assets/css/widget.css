@@ -5,7 +5,7 @@
   max-width: 324px;
   background: white;
 }
-.starWarsWidget form label {
+.starWarsWidget form .starWarsWidgetLeftHeader {
   font-family: "Luckiest Guy", cursive;
   font-size: 29px;
   color: black;
