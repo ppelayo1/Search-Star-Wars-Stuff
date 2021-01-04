@@ -56,7 +56,7 @@ function search_star_wars_cgb_block_assets() { // phpcs:ignore
         //The js scripts and its style for the widget on the front end
         wp_enqueue_script ( 'starWarsConstantsjs', plugin_dir_url( __FILE__ ) . 'assets/js/constants.js');
         wp_enqueue_script ( 'starWarsWidgetjs', plugin_dir_url( __FILE__ ) . 'assets/js/widget.js',$dependencies,false,true);
-        wp_enqueue_style ('starWarsFont',"https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Merriweather+Sans:wght@300&display=swap");//Merriweather Sans font
+        wp_enqueue_style ('starWarsFont',"https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Luckiest+Guy&display=swap");//luckiest guy + libre caslon 400 && 700
         wp_enqueue_style ( 'jqueryUIcssStarWars', plugin_dir_url( __FILE__ ) . 'assets/css/jqueryAutoComplete.css'); //take from jquery ui css theme builder
         wp_enqueue_style ( 'starWarsWidgetCSS', plugin_dir_url( __FILE__ ) . 'assets/css/widget.css');
         

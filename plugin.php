@@ -1,17 +1,17 @@
 <?php
 /**
- * Plugin Name: gutenbergblock-starwars
- * Plugin URI: https://github.com/ahmadawais/create-guten-block/
- * Description: search-star-wars — is a Gutenberg plugin created via create-guten-block.
- * Author: mrahmadawais, maedahbatool
- * Author URI: https://AhmadAwais.com/
- * Version: 1.0.0
+ * Plugin Name: Search Star Wars Stuff
+ * Plugin URI: 
+ * Description: Enter a Star Wars character and find their attributes.
+ * Author: PatrickPelayo
+ * Author URI: https://www.PatrickP.Tech/
+ * Version: 1.1.0
  * License: GPL2+
- * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  *
- * @package CGB
+ * 
  */
-
+ 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
