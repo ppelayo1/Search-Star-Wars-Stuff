@@ -12,15 +12,6 @@
 .starWarsWidget ul {
   padding-left: 0; }
 
-.starWarsWidgetResized {
-  font-family: 'Luckiest Guy', cursive;
-  font-size: 29px;
-  color: black;
-  display: block;
-  margin-bottom: 8px;
-  text-align: center;
-  width: 100%; }
-
 .aligncenter .starWarsWidget {
   margin-left: auto;
   margin-right: auto; }

@@ -6,10 +6,10 @@
  */
 
 .starWarsEditor{
-    border:2px inset black;
+    border:0.125rem inset black;
     min-height:200px;
-    padding: 18px 36px 18px 36px;
-    max-width:324px;
+    padding: 1.125rem 2.25rem 1.125rem 2.25rem;
+    max-width:20.25rem;
     background:white;
     
     form{    
@@ -17,7 +17,7 @@
             font-family: 'Luckiest Guy', cursive;
             color:black;
             width:100%;
-            font-size:29px;
+            font-size:1.813rem;
             display:block;
             background:inherit;
             border:none;
@@ -26,10 +26,10 @@
         }
         input:focus{
             outline:none;
-            border:2px solid orangered;
+            border:0.125rem solid orangered;
         }
         p{
-            border:2px outset black;
+            border:0.125rem outset black;
             margin: 0 auto 0 auto;
             display:block;
             width:100%;
