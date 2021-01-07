@@ -20,3 +20,7 @@
   margin-bottom: 8px;
   text-align: center;
   width: 100%; }
+
+.aligncenter .starWarsWidget {
+  margin-left: auto;
+  margin-right: auto; }

@@ -47,6 +47,9 @@ registerBlockType( 'cgb/block-search-star-wars', {
         }
     
     },
+    supports:{
+        align:['left','center','right']
+    },
 
 	/**
 	 * The edit function describes the structure of your block in the context of the editor.
@@ -92,12 +95,14 @@ registerBlockType( 'cgb/block-search-star-wars', {
             let id = attributes.id;
             let title = attributes.title;
             return(
-                <div className={PPSTARWARSCONST.WIDGET_BLOCK_EDITOR_CLASSNAME}>
-                    <form>
-                        <input value={title} type='text' placeholder = {PPSTARWARSCONST.WIDGET_DEFAULT_TITLE} onChange={this.upDateTitle}/>
-                        <p> Search </p>
-                    </form> 
-                </div>
+                <Fragment>
+                    <div className={PPSTARWARSCONST.WIDGET_BLOCK_EDITOR_CLASSNAME}>
+                        <form>
+                            <input value={title} type='text' placeholder = {PPSTARWARSCONST.WIDGET_DEFAULT_TITLE} onChange={this.upDateTitle}/>
+                            <p> Search </p>
+                        </form> 
+                    </div>
+                </Fragment>
             );
         }
 	},
@@ -126,12 +131,13 @@ registerBlockType( 'cgb/block-search-star-wars', {
             title = PPSTARWARSCONST.WIDGET_DEFAULT_TITLE;
         }
 		return (
-                
-                <div className={PPSTARWARSCONST.WIDGET_CLASSNAME}>
-                    <form>
-                        <label className={PPSTARWARSCONST.WIDGET_LEFT_TEXT} for={id}>{title}</label>
-                        <input id={id} placeholder='Search' type='search'/>
-                    </form> 
+                <div>
+                    <div className={PPSTARWARSCONST.WIDGET_CLASSNAME}>
+                        <form>
+                            <label className={PPSTARWARSCONST.WIDGET_LEFT_TEXT} for={id}>{title}</label>
+                            <input id={id} placeholder='Search' type='search'/>
+                        </form> 
+                    </div>
                 </div>
 		);
 	},
