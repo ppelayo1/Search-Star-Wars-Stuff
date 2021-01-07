@@ -7,4 +7,6 @@ let PPSTARWARSCONST = {
     ACTION_AJAX_SUBMIT: 'patrickp_star_wars_query_submit', //The wordpress action for the ajax submit call
     WIDGET_BLOCK_EDITOR_CLASSNAME: 'starWarsEditor', //needed for styling from the block editor
     WIDGET_DEFAULT_TITLE: 'Search Star Wars', //default name displayed if none entered by user
+    WIDGET_MAX_WIDTH:324, //max width the widget should change, but some themes will manage to change it larger
+    WIDGET_LEFT_TEXT:'starWarsWidgetLeftHeader' //needed to remove the old class
 };
