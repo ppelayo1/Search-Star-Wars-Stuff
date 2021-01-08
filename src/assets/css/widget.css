@@ -59,6 +59,10 @@
   font-size: 0.824rem;
 }
 
+.starWarsUiMenu323PX {
+  font-size: 1.03rem;
+}
+
 .starWarsWidget form .starWarsHeader288PX {
   font-size: 1rem;
 }
@@ -70,6 +74,10 @@
 }
 .starWarsWidget ul li .starWarsRightCol288px {
   font-size: 0.588rem;
+}
+
+.starWarsUiMenu288PX {
+  font-size: 0.735rem;
 }
 
 .ui-helper-hidden-accessible {

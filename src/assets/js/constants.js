@@ -13,6 +13,7 @@ let PPSTARWARSCONST = {
     WIDGET_SEARCHBAR: 'starWarsSearchBar', //class for the search bar
     WIDGET_LEFT_COL: 'starWarsLeftCol', //The left div column in the ul
     WIDGET_RIGHT_COL: 'starWarsRightCol', //the right div column in the ul
+    WIDGET_UI_MENU: 'ui-menu', //The auto complete menu class
     
     //used by javascript to make the widget responsive when width of widget decreases
     //323px
@@ -21,11 +22,13 @@ let PPSTARWARSCONST = {
     WIDGET_RIGHT_COL_323PX: 'starWarsRightCol323px', 
     WIDGET_INPUT_323PX:'starWarsInput323px',
     WIDGET_HEADER_323PX:'starWarsHeader323PX',
+    WIDGET_MENU_ITEM_323PX:'starWarsUiMenu323PX',
     
     //288px
     WIDGET_288PX:288, //represents 450 pixels
     WIDGET_LEFT_COL_288PX: 'starWarsLeftCol288px', 
     WIDGET_RIGHT_COL_288PX: 'starWarsRightCol288px', 
     WIDGET_INPUT_288PX:'starWarsInput288px',
-    WIDGET_HEADER_288PX:'starWarsHeader288PX'
+    WIDGET_HEADER_288PX:'starWarsHeader288PX',
+    WIDGET_MENU_ITEM_288PX:'starWarsUiMenu288PX'
 };
