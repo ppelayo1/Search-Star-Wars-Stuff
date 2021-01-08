@@ -29,13 +29,14 @@ const { Component } = wp.element;
  */
 registerBlockType( 'cgb/block-search-star-wars', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'search-star-wars - CGB Block' ), // Block title.
-	icon: 'shield', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
-	category: 'common', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
+	title: __( 'search star wars' ), // Block title.
+	icon: 'star-empty', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
+	category: 'widgets', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__( 'search-star-wars — CGB Block' ),
-		__( 'CGB Example' ),
-		__( 'create-guten-block' ),
+		__( 'search star wars' ),
+		__( 'star wars' ),
+		__( 'search' ),
+        __('star'),
 	],
     attributes:{
         id:{
