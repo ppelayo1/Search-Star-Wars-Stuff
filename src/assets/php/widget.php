@@ -30,7 +30,7 @@ class PatrickP_Star_Wars_Widget extends WP_Widget {
         $this->defaultTitleFieldName = 'Search Star Wars'; //Default title name for the star wars search bar
         $this->widgetPlaceHolder = 'Search';
         $this->widgetClass = 'starWarsWidget';
-        $this->widgetHeader ='starWarsWidgetLeftHeader';
+        $this->widgetHeader ='starWarsWidgetHeader';
     }
  
     /**

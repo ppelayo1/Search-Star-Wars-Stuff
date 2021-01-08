@@ -6,19 +6,33 @@ jQuery(document).ready(()=>{
         let className = '.' + PPSTARWARSCONST.WIDGET_CLASSNAME;
         
         jQuery(className).each(function (i) {
-            let label = jQuery(this).find('label');
-            let leftCol = jQuery('.' + PPSTARWARSCONST.WIDGET_LEFT_COL)[0];
-            let rightCol = jQuery('.' + PPSTARWARSCONST.WIDGET_RIGHT_COL)[0];
+            let header = jQuery(this).find('.' + PPSTARWARSCONST.WIDGET_HEADER)[0];
+            let leftCol = jQuery(this).find('.' + PPSTARWARSCONST.WIDGET_LEFT_COL);
+            let rightCol = jQuery(this).find('.' + PPSTARWARSCONST.WIDGET_RIGHT_COL);
+            
             let width = jQuery(this).outerWidth();
             
             //check the widths and make the addition of the class
-            if(width <= PPSTARWARSCONST.WIDGET_450px){
-                jQuery(PPSTARWARSCONST.WIDGET_LEFT_TEXT).addClass(PPSTARWARSCONST.WIDGET_LABEL_450PX);
+            if(width > PPSTARWARSCONST.WIDGET_323PX && width <= PPSTARWARSCONST.WIDGET_450px){
+                jQuery(header).addClass(PPSTARWARSCONST.WIDGET_HEADER_450PX);
+                
                 jQuery(leftCol).addClass(PPSTARWARSCONST.WIDGET_LEFT_COL_450PX);
                 jQuery(rightCol).addClass(PPSTARWARSCONST.WIDGET_RIGHT_COL_450PX);
+            }else{
+                if(width <= PPSTARWARSCONST.WIDGET_323PX){
+                   console.log('test');
+                    
+                   }else{
+                        jQuery(header).removeClass(PPSTARWARSCONST.WIDGET_HEADER_450PX);
+
+                        jQuery(leftCol).removeClass(PPSTARWARSCONST.WIDGET_LEFT_COL_450PX);
+                        jQuery(rightCol).removeClass(PPSTARWARSCONST.WIDGET_RIGHT_COL_450PX);
+                }
             }
         });    
     }
+    
+    jQuery(window).bind('resize',responsiveWidget);
     
     class StarWarsAjax{
         //class members

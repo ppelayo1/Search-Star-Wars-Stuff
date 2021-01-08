@@ -9,13 +9,22 @@ let PPSTARWARSCONST = {
     WIDGET_DEFAULT_TITLE: 'Search Star Wars', //default name displayed if none entered by user
     WIDGET_MAX_WIDTH:324, //max width the widget should change, but some themes will manage to change it larger
     
-    
-    WIDGET_LEFT_TEXT:'starWarsWidgetLeftHeader', //needed to remove the old class
+    WIDGET_HEADER:'starWarsWidgetHeader', //needed to remove the old class
     WIDGET_LEFT_COL: 'starWarsLeftCol', //The left div column in the ul
     WIDGET_RIGHT_COL: 'starWarsRightCol', //the right div column in the ul
     
+    //used by javascript to make the widget responsive when width of widget decreases
+    //323px
+    WIDGET_450px:323, //represents 450 pixels
     WIDGET_LEFT_COL_450PX: 'starWarsLeftCol450px', //applied when the widget is under 450px
     WIDGET_RIGHT_COL_450PX: 'starWarsRightCol450px', //applied when the widget is under 450px
     WIDGET_INPUT_450PX:'starWarsInput450px',
-    WIDGET_LABEL_450PX:'starWarsLabel450px'
+    WIDGET_HEADER_450PX:'starWarsHeader450PX',
+    
+    //288px
+    WIDGET_323PX:323, //represents 450 pixels
+    WIDGET_LEFT_COL_323PX: 'starWarsLeftCol323px', //applied when the widget is under 450px
+    WIDGET_RIGHT_COL_323PX: 'starWarsRightCol323px', //applied when the widget is under 450px
+    WIDGET_INPUT_323PX:'starWarsInput323px',
+    WIDGET_HEADER_323PX:'starWarsHeader323PX'
 };

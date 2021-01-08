@@ -5,7 +5,7 @@
     max-width:20.25rem;
     background:white;
     form{
-        .starWarsWidgetLeftHeader{
+        .starWarsWidgetHeader{
             font-family: 'Luckiest Guy', cursive;
             font-size:1.7rem;
             color:black;
@@ -34,12 +34,12 @@
             margin-bottom:1rem;
             line-height: 1.3;
             
-            div:nth-child(1){
+            .starWarsLeftCol{
                 font-weight: 700;
                 text-align: left;
                 font-size:1.438rem;
             }
-            div:nth-child(2){
+            starWarsRightCol{
                 text-align: right;
                 font-weight: 400;
                 align-self:end;
@@ -52,20 +52,51 @@
 //these classes will be applied by javascript to ensure the widget stays responsive
 //max 450px
 .starWarsWidget{
-    .starWarsLabel450px{
-        
+    form{
+        //0.824 multiplied against the full sied font size
+        .starWarsHeader450PX{
+            font-size:1.4rem;
+        }
+
+        .starWarsInput450px{
+
+        }
     }
-    .starWarsInput450px{
-        
-    }
-    .starWarsLeftCol450px{
-        
-    }
-    .starWarsRightCol450px{
-        
+    ul{
+        li{
+            .starWarsLeftCol450px{
+                font-size:1.185rem;
+            }
+            .starWarsRightCol450px{
+                font-size:1.185rem;
+            }
+        }
     }
 }
 
+//max 323px
+.starWarsWidget{
+    form{
+        //0.824 multiplied against the full sied font size
+        .starWarsHeader323PX{
+            font-size:1.4rem;
+        }
+
+        .starWarsInput323px{
+
+        }
+    }
+    ul{
+        li{
+            .starWarsLeftCol323px{
+                font-size:1.185rem;
+            }
+            .starWarsRightCol323px{
+                font-size:1.185rem;
+            }
+        }
+    }
+}
 //my modifications of the jquery ui css
 //hide the helper off screen
 .ui-helper-hidden-accessible { position: absolute; left:-999rem; }
