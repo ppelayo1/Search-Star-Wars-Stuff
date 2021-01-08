@@ -29,9 +29,9 @@ To use in the side bar add the widget to your site's widget sidebar location as 
 and then clicking either *Customize*, or *widgets*.
 
 * **Widgets**
-Under the *Widgets* tab t the left side of the page will display the *Available Widgets*. Select *Search Star Wars*, and then select the sidebar you would like to add the widget to.
+Under the *Widgets* tab to the left side of the page will display the *Available Widgets*. Select *Search Star Wars*, and then select the sidebar you would like to add the widget to.
 
-* **Widgets**
+* **Gutenberg Block Object**
 
 = Additional Info =
 No service calls are made to obtain the data needed to use this plugin, but the data used to create the "starwarsData.json" file was originally obtained thru https://swapi.dev/, of which obtained the data from open sources such as wookieepedia.
