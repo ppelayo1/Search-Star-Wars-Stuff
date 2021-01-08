@@ -13,14 +13,16 @@
             margin-bottom:0.5rem;
             text-align: center;
         }
-        input{
+        .starWarsSearchBar{
             border:0.125rem outset black;
             width:100%;
+            font-size:1.25rem;
         }
-        input:focus{
+        .starWarsSearchBar:focus{
             border:0.125rem outset lightblue;
             outline:none;
             width:100%;
+            font-size:1.25rem;
         }
     }
     ul{
@@ -53,13 +55,13 @@
 //max 450px
 .starWarsWidget{
     form{
-        //0.824 multiplied against the full sied font size
+        //0.824 multiplied against the full font size
         .starWarsHeader450PX{
             font-size:1.4rem;
         }
 
         .starWarsInput450px{
-
+            font-size:200rem;
         }
     }
     ul{
@@ -77,22 +79,22 @@
 //max 323px
 .starWarsWidget{
     form{
-        //0.824 multiplied against the full sied font size
-        .starWarsHeader323PX{
-            font-size:1.4rem;
+        //0.588 original size
+        .starWarsHeader288PX{
+            font-size:1rem;
         }
 
-        .starWarsInput323px{
+        .starWarsInput288px{
 
         }
     }
     ul{
         li{
-            .starWarsLeftCol323px{
-                font-size:1.185rem;
+            .starWarsLeftCol288px{
+                font-size:0.588rem;
             }
-            .starWarsRightCol323px{
-                font-size:1.185rem;
+            .starWarsRightCol288px{
+                font-size:0.588rem;
             }
         }
     }

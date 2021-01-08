@@ -31,6 +31,7 @@ class PatrickP_Star_Wars_Widget extends WP_Widget {
         $this->widgetPlaceHolder = 'Search';
         $this->widgetClass = 'starWarsWidget';
         $this->widgetHeader ='starWarsWidgetHeader';
+        $this->searchBarClass = 'starWarsSearchBar';
     }
  
     /**
@@ -57,7 +58,7 @@ class PatrickP_Star_Wars_Widget extends WP_Widget {
         echo "<div class='{$this->widgetClass}'>
                 <form>
                     <label class='{$this->widgetHeader}' for='{$widgetID}'>{$title} </label>
-                    <input id='{$widgetID}' placeholder='$this->widgetPlaceHolder' type='search'>
+                    <input id='{$widgetID}' class='{$this->searchBarClass}' placeholder='$this->widgetPlaceHolder' type='search'>
                 </form> 
             </div>";
         echo $after_widget;

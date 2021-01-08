@@ -135,7 +135,7 @@ registerBlockType( 'cgb/block-search-star-wars', {
                     <div className={PPSTARWARSCONST.WIDGET_CLASSNAME}>
                         <form>
                             <label className={PPSTARWARSCONST.WIDGET_HEADER} for={id}>{title}</label>
-                            <input id={id} placeholder='Search' type='search'/>
+                            <input className={PPSTARWARSCONST.WIDGET_SEARCHBAR} id={id} placeholder='Search' type='search'/>
                         </form> 
                     </div>
                 </div>

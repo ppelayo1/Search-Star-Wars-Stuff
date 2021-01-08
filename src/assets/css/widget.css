@@ -13,14 +13,16 @@
   margin-bottom: 0.5rem;
   text-align: center;
 }
-.starWarsWidget form input {
+.starWarsWidget form .starWarsSearchBar {
   border: 0.125rem outset black;
   width: 100%;
+  font-size: 1.25rem;
 }
-.starWarsWidget form input:focus {
+.starWarsWidget form .starWarsSearchBar:focus {
   border: 0.125rem outset lightblue;
   outline: none;
   width: 100%;
+  font-size: 1.25rem;
 }
 .starWarsWidget ul {
   font-family: "Libre Caslon Text", serif;
@@ -46,6 +48,9 @@
 .starWarsWidget form .starWarsHeader450PX {
   font-size: 1.4rem;
 }
+.starWarsWidget form .starWarsInput450px {
+  font-size: 200rem;
+}
 .starWarsWidget ul li .starWarsLeftCol450px {
   font-size: 1.185rem;
 }
@@ -53,14 +58,14 @@
   font-size: 1.185rem;
 }
 
-.starWarsWidget form .starWarsHeader323PX {
-  font-size: 1.4rem;
+.starWarsWidget form .starWarsHeader288PX {
+  font-size: 1rem;
 }
-.starWarsWidget ul li .starWarsLeftCol323px {
-  font-size: 1.185rem;
+.starWarsWidget ul li .starWarsLeftCol288px {
+  font-size: 0.588rem;
 }
-.starWarsWidget ul li .starWarsRightCol323px {
-  font-size: 1.185rem;
+.starWarsWidget ul li .starWarsRightCol288px {
+  font-size: 0.588rem;
 }
 
 .ui-helper-hidden-accessible {

@@ -10,6 +10,7 @@ let PPSTARWARSCONST = {
     WIDGET_MAX_WIDTH:324, //max width the widget should change, but some themes will manage to change it larger
     
     WIDGET_HEADER:'starWarsWidgetHeader', //needed to remove the old class
+    WIDGET_SEARCHBAR: 'starWarsSearchBar', //class for the search bar
     WIDGET_LEFT_COL: 'starWarsLeftCol', //The left div column in the ul
     WIDGET_RIGHT_COL: 'starWarsRightCol', //the right div column in the ul
     
@@ -22,9 +23,9 @@ let PPSTARWARSCONST = {
     WIDGET_HEADER_450PX:'starWarsHeader450PX',
     
     //288px
-    WIDGET_323PX:323, //represents 450 pixels
-    WIDGET_LEFT_COL_323PX: 'starWarsLeftCol323px', //applied when the widget is under 450px
-    WIDGET_RIGHT_COL_323PX: 'starWarsRightCol323px', //applied when the widget is under 450px
-    WIDGET_INPUT_323PX:'starWarsInput323px',
-    WIDGET_HEADER_323PX:'starWarsHeader323PX'
+    WIDGET_288PX:288, //represents 450 pixels
+    WIDGET_LEFT_COL_288PX: 'starWarsLeftCol288px', //applied when the widget is under 450px
+    WIDGET_RIGHT_COL_288PX: 'starWarsRightCol288px', //applied when the widget is under 450px
+    WIDGET_INPUT_288PX:'starWarsInput288px',
+    WIDGET_HEADER_288PX:'starWarsHeader288PX'
 };
