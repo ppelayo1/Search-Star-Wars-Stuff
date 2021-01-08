@@ -1,5 +1,25 @@
 
 jQuery(document).ready(()=>{
+    
+    //makes widget responsive
+    function responsiveWidget(){
+        let className = '.' + PPSTARWARSCONST.WIDGET_CLASSNAME;
+        
+        jQuery(className).each(function (i) {
+            let label = jQuery(this).find('label');
+            let leftCol = jQuery('.' + PPSTARWARSCONST.WIDGET_LEFT_COL)[0];
+            let rightCol = jQuery('.' + PPSTARWARSCONST.WIDGET_RIGHT_COL)[0];
+            let width = jQuery(this).outerWidth();
+            
+            //check the widths and make the addition of the class
+            if(width <= PPSTARWARSCONST.WIDGET_450px){
+                jQuery(PPSTARWARSCONST.WIDGET_LEFT_TEXT).addClass(PPSTARWARSCONST.WIDGET_LABEL_450PX);
+                jQuery(leftCol).addClass(PPSTARWARSCONST.WIDGET_LEFT_COL_450PX);
+                jQuery(rightCol).addClass(PPSTARWARSCONST.WIDGET_RIGHT_COL_450PX);
+            }
+        });    
+    }
+    
     class StarWarsAjax{
         //class members
         form; //holds jQuery object of all starwars widgets
@@ -133,7 +153,7 @@ jQuery(document).ready(()=>{
                     col = col.charAt(0).toUpperCase() + col.slice(1); //set first letter to uppercase
                     record[i] = modifyResults(i,record[i]);
                     
-                    let printOut = '<div>' + col +':</div>' + '<div>' + record[i] + '</div>';
+                    let printOut = '<div class="' + PPSTARWARSCONST.WIDGET_LEFT_COL + '">' + col +':</div>' + '<div class="' + PPSTARWARSCONST.WIDGET_RIGHT_COL + '">' + record[i] + '</div>';
                     ol.append('<li class="' + PPSTARWARSCONST.OUTPUT_CLASSNAME +'">'+ printOut +'</li>');
                 }
             }
@@ -229,6 +249,8 @@ jQuery(document).ready(()=>{
                 }
             }
             
+            //ensure the widget is responsive
+            responsiveWidget();
         }
         
         //the two types of submit functions, one for a enter submit, the other for a click of auto complete submit

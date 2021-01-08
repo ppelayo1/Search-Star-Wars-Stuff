@@ -8,5 +8,14 @@ let PPSTARWARSCONST = {
     WIDGET_BLOCK_EDITOR_CLASSNAME: 'starWarsEditor', //needed for styling from the block editor
     WIDGET_DEFAULT_TITLE: 'Search Star Wars', //default name displayed if none entered by user
     WIDGET_MAX_WIDTH:324, //max width the widget should change, but some themes will manage to change it larger
-    WIDGET_LEFT_TEXT:'starWarsWidgetLeftHeader' //needed to remove the old class
+    
+    
+    WIDGET_LEFT_TEXT:'starWarsWidgetLeftHeader', //needed to remove the old class
+    WIDGET_LEFT_COL: 'starWarsLeftCol', //The left div column in the ul
+    WIDGET_RIGHT_COL: 'starWarsRightCol', //the right div column in the ul
+    
+    WIDGET_LEFT_COL_450PX: 'starWarsLeftCol450px', //applied when the widget is under 450px
+    WIDGET_RIGHT_COL_450PX: 'starWarsRightCol450px', //applied when the widget is under 450px
+    WIDGET_INPUT_450PX:'starWarsInput450px',
+    WIDGET_LABEL_450PX:'starWarsLabel450px'
 };

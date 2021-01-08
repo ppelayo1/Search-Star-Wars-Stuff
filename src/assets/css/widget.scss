@@ -49,6 +49,23 @@
     }
 }
 
+//these classes will be applied by javascript to ensure the widget stays responsive
+//max 450px
+.starWarsWidget{
+    .starWarsLabel450px{
+        
+    }
+    .starWarsInput450px{
+        
+    }
+    .starWarsLeftCol450px{
+        
+    }
+    .starWarsRightCol450px{
+        
+    }
+}
+
 //my modifications of the jquery ui css
 //hide the helper off screen
 .ui-helper-hidden-accessible { position: absolute; left:-999rem; }
