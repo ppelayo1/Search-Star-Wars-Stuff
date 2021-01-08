@@ -39,12 +39,13 @@
             .starWarsLeftCol{
                 font-weight: 700;
                 text-align: left;
-                font-size:1.438rem;
+                font-size:1rem;
             }
-            starWarsRightCol{
+            .starWarsRightCol{
                 text-align: right;
                 font-weight: 400;
                 align-self:end;
+                font-size:1rem;
             }
         }
         
@@ -56,21 +57,21 @@
 .starWarsWidget{
     form{
         //0.824 multiplied against the full font size
-        .starWarsHeader450PX{
+        .starWarsHeader323PX{
             font-size:1.4rem;
         }
 
-        .starWarsInput450px{
-            font-size:200rem;
+        .starWarsInput323px{
+            font-size:1.03rem;
         }
     }
     ul{
         li{
-            .starWarsLeftCol450px{
-                font-size:1.185rem;
+            .starWarsLeftCol323px{
+                font-size:0.824rem;
             }
-            .starWarsRightCol450px{
-                font-size:1.185rem;
+            .starWarsRightCol323px{
+                font-size:0.824rem;
             }
         }
     }
@@ -85,7 +86,7 @@
         }
 
         .starWarsInput288px{
-
+            font-size:0.735rem;
         }
     }
     ul{

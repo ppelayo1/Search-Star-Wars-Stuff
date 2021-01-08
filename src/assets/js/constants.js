@@ -16,16 +16,16 @@ let PPSTARWARSCONST = {
     
     //used by javascript to make the widget responsive when width of widget decreases
     //323px
-    WIDGET_450px:323, //represents 450 pixels
-    WIDGET_LEFT_COL_450PX: 'starWarsLeftCol450px', //applied when the widget is under 450px
-    WIDGET_RIGHT_COL_450PX: 'starWarsRightCol450px', //applied when the widget is under 450px
-    WIDGET_INPUT_450PX:'starWarsInput450px',
-    WIDGET_HEADER_450PX:'starWarsHeader450PX',
+    WIDGET_323PX:323, //represents 323 pixels
+    WIDGET_LEFT_COL_323PX: 'starWarsLeftCol323px', 
+    WIDGET_RIGHT_COL_323PX: 'starWarsRightCol323px', 
+    WIDGET_INPUT_323PX:'starWarsInput323px',
+    WIDGET_HEADER_323PX:'starWarsHeader323PX',
     
     //288px
     WIDGET_288PX:288, //represents 450 pixels
-    WIDGET_LEFT_COL_288PX: 'starWarsLeftCol288px', //applied when the widget is under 450px
-    WIDGET_RIGHT_COL_288PX: 'starWarsRightCol288px', //applied when the widget is under 450px
+    WIDGET_LEFT_COL_288PX: 'starWarsLeftCol288px', 
+    WIDGET_RIGHT_COL_288PX: 'starWarsRightCol288px', 
     WIDGET_INPUT_288PX:'starWarsInput288px',
     WIDGET_HEADER_288PX:'starWarsHeader288PX'
 };

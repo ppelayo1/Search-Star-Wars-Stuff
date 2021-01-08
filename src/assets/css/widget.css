@@ -37,29 +37,33 @@
 .starWarsWidget ul li .starWarsLeftCol {
   font-weight: 700;
   text-align: left;
-  font-size: 1.438rem;
+  font-size: 1rem;
 }
-.starWarsWidget ul li starWarsRightCol {
+.starWarsWidget ul li .starWarsRightCol {
   text-align: right;
   font-weight: 400;
   align-self: end;
+  font-size: 1rem;
 }
 
-.starWarsWidget form .starWarsHeader450PX {
+.starWarsWidget form .starWarsHeader323PX {
   font-size: 1.4rem;
 }
-.starWarsWidget form .starWarsInput450px {
-  font-size: 200rem;
+.starWarsWidget form .starWarsInput323px {
+  font-size: 1.03rem;
 }
-.starWarsWidget ul li .starWarsLeftCol450px {
-  font-size: 1.185rem;
+.starWarsWidget ul li .starWarsLeftCol323px {
+  font-size: 0.824rem;
 }
-.starWarsWidget ul li .starWarsRightCol450px {
-  font-size: 1.185rem;
+.starWarsWidget ul li .starWarsRightCol323px {
+  font-size: 0.824rem;
 }
 
 .starWarsWidget form .starWarsHeader288PX {
   font-size: 1rem;
+}
+.starWarsWidget form .starWarsInput288px {
+  font-size: 0.735rem;
 }
 .starWarsWidget ul li .starWarsLeftCol288px {
   font-size: 0.588rem;

@@ -1,51 +1,6 @@
 
 jQuery(document).ready(()=>{
     
-    //makes widget responsive
-    function responsiveWidget(){
-        let className = '.' + PPSTARWARSCONST.WIDGET_CLASSNAME;
-        
-        jQuery(className).each(function (i) {
-            let header = jQuery(this).find('.' + PPSTARWARSCONST.WIDGET_HEADER)[0];
-            let searchBar = jQuery(this).find('.' + PPSTARWARSCONST.WIDGET_SEARCHBAR);
-            let leftCol = jQuery(this).find('.' + PPSTARWARSCONST.WIDGET_LEFT_COL);
-            let rightCol = jQuery(this).find('.' + PPSTARWARSCONST.WIDGET_RIGHT_COL);
-            
-            let width = jQuery(this).outerWidth();
-            
-            //check the widths and make the addition of the class
-            if(width > PPSTARWARSCONST.WIDGET_288PX && width <= PPSTARWARSCONST.WIDGET_450px){
-                resetClasses(header,searchBar,leftCol,rightCol);
-                
-                jQuery(header).addClass(PPSTARWARSCONST.WIDGET_HEADER_450PX);
-                jQuery(searchBar).addClass(PPSTARWARSCONST.WIDGET_INPUT_450PX);
-                jQuery(leftCol).addClass(PPSTARWARSCONST.WIDGET_LEFT_COL_450PX);
-                jQuery(rightCol).addClass(PPSTARWARSCONST.WIDGET_RIGHT_COL_450PX);
-            }else{
-                if(width <= PPSTARWARSCONST.WIDGET_288PX){
-                    resetClasses(header,searchBar,leftCol,rightCol);
-                    
-                    jQuery(header).addClass(PPSTARWARSCONST.WIDGET_HEADER_288PX);
-                    jQuery(searchBar).addClass(PPSTARWARSCONST.WIDGET_INPUT_288PX);
-                    jQuery(leftCol).addClass(PPSTARWARSCONST.WIDGET_LEFT_COL_288PX);
-                    jQuery(rightCol).addClass(PPSTARWARSCONST.WIDGET_RIGHT_COL_288PX);
-                    
-                   }else{
-                        resetClasses(header,searchBar,leftCol,rightCol);
-                }
-            }
-        });   
-        
-        function resetClasses(header,searchBar,leftCol,rightCol){
-            jQuery(header).removeClass([PPSTARWARSCONST.WIDGET_HEADER_450PX,PPSTARWARSCONST.WIDGET_HEADER_288PX]);
-            jQuery(searchBar).removeClass([PPSTARWARSCONST.WIDGET_INPUT_450PX,PPSTARWARSCONST.WIDGET_INPUT_288PX]);
-            jQuery(leftCol).removeClass([PPSTARWARSCONST.WIDGET_LEFT_COL_450PX,PPSTARWARSCONST.WIDGET_LEFT_COL_288PX]);
-            jQuery(rightCol).removeClass([PPSTARWARSCONST.WIDGET_RIGHT_COL_450PX,PPSTARWARSCONST.WIDGET_RIGHT_COL_288PX]);
-        }
-    }
-    
-    jQuery(window).bind('resize',responsiveWidget);
-    
     class StarWarsAjax{
         //class members
         form; //holds jQuery object of all starwars widgets
@@ -60,6 +15,54 @@ jQuery(document).ready(()=>{
             this.form.submit(this.submit);
             
             this.setUpHintHandler();
+            
+            this.responsiveWidget();
+            jQuery(window).bind('resize',this.responsiveWidget);
+        }
+        
+        //ensures the widget remains responsive
+        responsiveWidget(){
+            let className = '.' + PPSTARWARSCONST.WIDGET_CLASSNAME;
+        
+            //takes each widget present on the page and checks the width of those widgets, applies css classes as necessary to ensure responsiveness
+            jQuery(className).each(function (i) {
+                let header = jQuery(this).find('.' + PPSTARWARSCONST.WIDGET_HEADER)[0];
+                let searchBar = jQuery(this).find('.' + PPSTARWARSCONST.WIDGET_SEARCHBAR);
+                let leftCol = jQuery(this).find('.' + PPSTARWARSCONST.WIDGET_LEFT_COL);
+                let rightCol = jQuery(this).find('.' + PPSTARWARSCONST.WIDGET_RIGHT_COL);
+
+                let width = jQuery(this).outerWidth();
+
+                //check the widths and make the addition of the class
+                if(width > PPSTARWARSCONST.WIDGET_288PX && width <= PPSTARWARSCONST.WIDGET_323PX){
+                    resetClasses(header,searchBar,leftCol,rightCol);
+
+                    jQuery(header).addClass(PPSTARWARSCONST.WIDGET_HEADER_323PX);
+                    jQuery(searchBar).addClass(PPSTARWARSCONST.WIDGET_INPUT_323PX);
+                    jQuery(leftCol).addClass(PPSTARWARSCONST.WIDGET_LEFT_COL_323PX);
+                    jQuery(rightCol).addClass(PPSTARWARSCONST.WIDGET_RIGHT_COL_323PX);
+                }else{
+                    if(width <= PPSTARWARSCONST.WIDGET_288PX){
+                        resetClasses(header,searchBar,leftCol,rightCol);
+
+                        jQuery(header).addClass(PPSTARWARSCONST.WIDGET_HEADER_288PX);
+                        jQuery(searchBar).addClass(PPSTARWARSCONST.WIDGET_INPUT_288PX);
+                        jQuery(leftCol).addClass(PPSTARWARSCONST.WIDGET_LEFT_COL_288PX);
+                        jQuery(rightCol).addClass(PPSTARWARSCONST.WIDGET_RIGHT_COL_288PX);
+
+                       }else{
+                            resetClasses(header,searchBar,leftCol,rightCol);
+                    }
+                }
+            });   
+
+            //utility function to remove all responsive classes
+            function resetClasses(header,searchBar,leftCol,rightCol){
+                jQuery(header).removeClass([PPSTARWARSCONST.WIDGET_HEADER_323PX,PPSTARWARSCONST.WIDGET_HEADER_288PX]);
+                jQuery(searchBar).removeClass([PPSTARWARSCONST.WIDGET_INPUT_323PX,PPSTARWARSCONST.WIDGET_INPUT_288PX]);
+                jQuery(leftCol).removeClass([PPSTARWARSCONST.WIDGET_LEFT_COL_323PX,PPSTARWARSCONST.WIDGET_LEFT_COL_288PX]);
+                jQuery(rightCol).removeClass([PPSTARWARSCONST.WIDGET_RIGHT_COL_323PX,PPSTARWARSCONST.WIDGET_RIGHT_COL_288PX]);
+            }
         }
         
         setUpHintHandler(){
@@ -274,9 +277,6 @@ jQuery(document).ready(()=>{
                     return returnVal;
                 }
             }
-            
-            //ensure the widget is responsive
-            responsiveWidget();
         }
         
         //the two types of submit functions, one for a enter submit, the other for a click of auto complete submit
