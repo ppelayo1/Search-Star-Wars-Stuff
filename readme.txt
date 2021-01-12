@@ -8,10 +8,10 @@ Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Search Star Wars Stuff
+Search for information on Star Wars Characters,ships,vehicles,planets,species, and the films from episodes 1-6.
 
 == Description ==
-Widget that lets you search characters,vehicles,planets, and etc. for Star Wars.
+From episode 1-6 search information on Star Wars Characters,ships,vehicles,planets,species, and the films. Find information such as Luke's homeworld, Tatooine's population, cost of a Star-Destroyer in credits, and *more*. 
 
 = Instructions =
 
@@ -48,7 +48,7 @@ No service calls are made to obtain the data needed to use this plugin, but the 
 == Changelog ==
 
 = 1.2 =
-* Added the ability to apply the widget as a gutenberg block object
+* Added the ability to apply the widget as a gutenberg block object and applied more responsiveness to the widget.
 
 = 1.1 =
 * updated the appearance of the plugin
@@ -59,7 +59,7 @@ No service calls are made to obtain the data needed to use this plugin, but the 
 == Upgrade Notice ==
 
 = 1.2 =
-* Upgrade if you want to use the widget in the body of a post as a gutenberg block object
+* Upgrade if you want to use the widget in the body of a post or have the widget more responsive on the page.
 
 = 1.1 =
 * Provides a better apperance of the widget.
