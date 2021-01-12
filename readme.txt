@@ -25,13 +25,17 @@ Install the plugin thru the *plugin manager*, or upload it as a zip file into th
 There are two differant ways to use this plugin. It can be used in a *Sidebar* or placed directly into a post as a *Gutenberg Block Object*.
 
 **SideBar**
-To use in the side bar add the widget to your site's widget sidebar location as you would any other widget. This can be done from the wordpress administration page by moving your mouse over apperance
-and then clicking either *Customize*, or *widgets*.
 
-* **Widgets**
-Under the *Widgets* tab to the left side of the page will display the *Available Widgets*. Select *Search Star Wars*, and then select the sidebar you would like to add the widget to.
+* **Customize Menu**
+From the main administration page in the left sidebar hover your mouse over *Appearance*. Click *Customize* and then click Widgets. Then click on the sidebar that you wish to add the widget to. Then click *Add a Widget*. Find *Search Star Wars* in the list and click it. Type a title and then click done.
 
-* **Gutenberg Block Object**
+* **Widget Menu**
+From the main administration page in the left sidebar hover your mouse over *Appearance*. Click *Widgets* and then a list of available widgets will be displayed on the page. Find and click *Search Star Wars* and then select the sidebar that you would like to add the widget to. Type a title for it and then hit done.
+
+**Gutenberg Block Object**
+
+* **As a post**
+Create a post like you normally would and then click the + icon displayed to *Add block*. Find *Search Star Wars* to add the widget to the post. Type a title for the widget and then save the post. 
 
 = Additional Info =
 No service calls are made to obtain the data needed to use this plugin, but the data used to create the "starwarsData.json" file was originally obtained thru https://swapi.dev/, of which obtained the data from open sources such as wookieepedia.

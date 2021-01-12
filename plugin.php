@@ -4,7 +4,7 @@
  * Plugin URI: 
  * Description: Enter a Star Wars character and find their attributes.
  * Author: PatrickPelayo
- * Author URI: https://www.PatrickP.Tech/
+ * Author URI: http://www.PatrickP.Tech/
  * Version: 1.2.0
  * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
